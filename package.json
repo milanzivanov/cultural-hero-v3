@@ -30,5 +30,10 @@
     "eslint-config-next": "15.5.3",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "overrides": {
+    "@sanity/visual-editing": {
+      "@sanity/client": "^7.11.1"
+    }
   }
 }
