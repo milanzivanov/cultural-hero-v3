@@ -7,7 +7,7 @@ export const components: PortableTextComponents = {
     image: (props) =>
       props.value ? (
         <Image
-          className="rounded-lg not-prose w-full h-auto"
+          className="rounded-lg not-prose h-auto max-w-full"
           src={urlFor(props.value)
             .width(600)
             .height(400)
