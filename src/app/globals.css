@@ -1,9 +1,10 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 html {
   overflow-y: scroll;
-  scroll-behavior: smooth;
 }
 
 .active {

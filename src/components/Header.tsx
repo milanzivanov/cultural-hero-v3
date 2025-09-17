@@ -2,6 +2,9 @@
 
 import Link from "next/link";
 import Image from "next/image";
+
+import ThemeToggle from "./ThemeToggle";
+
 import { usePathname } from "next/navigation";
 
 export function Header() {
@@ -20,7 +23,7 @@ export function Header() {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </Link>
-        <ul className="flex items-center gap-6 font-semibold text-slate-700">
+        <ul className="flex ml-auto items-center gap-6 font-semibold text-slate-700">
           <li>
             <Link
               href="/"
@@ -48,6 +51,9 @@ export function Header() {
             </Link>
           </li>
         </ul>
+        <div className="flex items-center ml-5">
+          <ThemeToggle />
+        </div>
       </header>
     </div>
   );

@@ -20,7 +20,12 @@ export const categoryType = defineType({
     }),
     defineField({
       name: "color",
-      type: "string"
+      title: "Color (hex)",
+      type: "string",
+      validation: (Rule) =>
+        Rule.regex(/^#(?:[0-9a-fA-F]{3}){1,2}$/, { name: "hex color" }).error(
+          "Use hex like #ff0000"
+        )
     }),
     defineField({
       name: "description",

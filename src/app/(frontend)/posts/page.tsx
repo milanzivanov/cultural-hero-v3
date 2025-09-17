@@ -7,11 +7,13 @@ export default async function Page() {
   const { data: posts } = await sanityFetch({ query: POSTS_QUERY });
 
   return (
-    <main className="max-w-7xl mx-auto grid grid-cols-1 gap-6 px-0 pb-12">
-      <div className="bg-slate-50 rounded-lg p-6">
-        <Title>Naslovi</Title>
+    <main className=" grid grid-cols-1 gap-6 px-0 pb-12">
+      <div className="bg-slate-100 dark:bg-slate-700 p-6">
+        <div className="max-w-7xl mx-auto">
+          <Title>Naslovi</Title>
+        </div>
       </div>
-      <div className="flex flex-col gap-24 py-12">
+      <div className="max-w-7xl mx-auto flex flex-col gap-24 py-12">
         {posts.map((post) => (
           <PostCard key={post._id} {...post} />
         ))}

@@ -14,7 +14,7 @@ export default async function Page() {
         <div className="flex flex-col w-full items-center">
           <div className="relative items-center z-10 flex flex-col">
             <h1
-              className="font-robotoBlack mb-0 md:mb-5 text-[1.7rem] font-black uppercase tracking-widest text-stone-200 md:text-4xl lg:text-5xl xl:text-[3.7
+              className="font-robotoBlack mb-0 md:mb-5 text-[1.7rem] font-black uppercase tracking-widest text-stone-200 dark:text-slate-300 md:text-4xl lg:text-5xl xl:text-[3.7
             rem]"
             >
               Kulturni heroj
