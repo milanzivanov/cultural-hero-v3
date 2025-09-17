@@ -7,6 +7,11 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "cdn.sanity.io"
+      },
+      {
+        protocol: "https",
+        hostname: "ovkrqbwfxzmoblsaodse.supabase.co",
+        pathname: "/storage/v1/object/public/**"
       }
     ]
   }

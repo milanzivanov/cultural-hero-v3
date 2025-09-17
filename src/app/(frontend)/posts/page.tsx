@@ -1,27 +1,21 @@
-import Link from "next/link";
 import { sanityFetch } from "@/sanity/lib/live";
 import { POSTS_QUERY } from "@/sanity/lib/queries";
+import { Title } from "@/components/Title";
+import { PostCard } from "@/components/PostCard";
 
 export default async function Page() {
   const { data: posts } = await sanityFetch({ query: POSTS_QUERY });
 
   return (
-    <main className="container mx-auto grid grid-cols-1 gap-6 p-12">
-      <h1 className="text-4xl font-bold">Naslovi</h1>
-      <ul className="grid grid-cols-1 divide-y divide-blue-100">
+    <main className="max-w-7xl mx-auto grid grid-cols-1 gap-6 px-0 pb-12">
+      <div className="bg-slate-50 rounded-lg p-6">
+        <Title>Naslovi</Title>
+      </div>
+      <div className="flex flex-col gap-24 py-12">
         {posts.map((post) => (
-          <li key={post._id}>
-            <Link
-              className="block p-4 hover:text-blue-500"
-              href={`/posts/${post?.slug?.current}`}
-            >
-              {post?.title}
-            </Link>
-          </li>
+          <PostCard key={post._id} {...post} />
         ))}
-      </ul>
-      <hr />
-      <Link href="/">&larr; Return home</Link>
+      </div>
     </main>
   );
 }
