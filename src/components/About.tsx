@@ -10,9 +10,9 @@ export default function About() {
   return (
     <>
       <div className="relative">
-        <div className="relative h-[40dvh] w-full">
+        <div className="relative w-full">
           <div className="relative z-10 mx-auto justify-center flex h-full items-center">
-            <h2 className="text-pretty text-center p-5 text-2xl font-extrabold tracking-wide text-slate-200 lg:text-5xl">
+            <h2 className="text-pretty text-center p-5 text-2xl font-extrabold tracking-wide text-slate-200 lg:text-3xl">
               <span className="mb-0 block md:mb-2">Manifest </span>
               <span className="block">kulturnog heroja</span>
             </h2>

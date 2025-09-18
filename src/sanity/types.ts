@@ -129,7 +129,7 @@ export type Category = {
   _rev: string;
   title?: string;
   slug?: Slug;
-  color?: string;
+  color?: Color;
   description?: string;
 };
 
@@ -164,6 +164,39 @@ export type BlockContent = Array<{
   _type: "image";
   _key: string;
 }>;
+
+export type Color = {
+  _type: "color";
+  hex?: string;
+  alpha?: number;
+  hsl?: HslaColor;
+  hsv?: HsvaColor;
+  rgb?: RgbaColor;
+};
+
+export type RgbaColor = {
+  _type: "rgbaColor";
+  r?: number;
+  g?: number;
+  b?: number;
+  a?: number;
+};
+
+export type HsvaColor = {
+  _type: "hsvaColor";
+  h?: number;
+  s?: number;
+  v?: number;
+  a?: number;
+};
+
+export type HslaColor = {
+  _type: "hslaColor";
+  h?: number;
+  s?: number;
+  l?: number;
+  a?: number;
+};
 
 export type SanityImagePaletteSwatch = {
   _type: "sanity.imagePaletteSwatch";
@@ -283,11 +316,11 @@ export type SanityAssetSourceData = {
   url?: string;
 };
 
-export type AllSanitySchemaTypes = Post | Author | Category | BlockContent | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
+export type AllSanitySchemaTypes = Post | Author | Category | BlockContent | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: POSTS_QUERY
-// Query: *[_type == "post" && defined(slug.current)]|order(publishedAt desc){_id, title, slug,body, mainImage, publishedAt, "categories": coalesce(categories[]->{title, color, slug, _id}, []),  author->{    name,    image  }}
+// Query: *[_type == "post" && defined(slug.current)]|order(publishedAt desc){_id, title, slug,body, mainImage, publishedAt, "categories": coalesce(categories[]->{title, "color": color.hex, slug, _id}, []),  author->{    name,    image  }}
 export type POSTS_QUERYResult = Array<{
   _id: string;
   title: string | null;
@@ -365,7 +398,7 @@ export type POSTS_SLUGS_QUERYResult = Array<{
   slug: string | null;
 }>;
 // Variable: POST_BY_SLUG_QUERY
-// Query: *[_type == "post" && slug.current == $slug][0]{_id,title,body,mainImage,publishedAt, "categories": coalesce(categories[]->{title, color, slug, _id}, []), author->{    name,    image  }}
+// Query: *[_type == "post" && slug.current == $slug][0]{_id,title,body,mainImage,publishedAt, "categories": coalesce(categories[]->{title, "color": color.hex, slug, _id}, []), author->{    name,    image  }}
 export type POST_BY_SLUG_QUERYResult = {
   _id: string;
   title: string | null;
@@ -441,8 +474,8 @@ export type POST_BY_SLUG_QUERYResult = {
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type == \"post\" && defined(slug.current)]|order(publishedAt desc){_id, title, slug,body, mainImage, publishedAt, \"categories\": coalesce(categories[]->{title, color, slug, _id}, []),  author->{\n    name,\n    image\n  }}": POSTS_QUERYResult;
+    "*[_type == \"post\" && defined(slug.current)]|order(publishedAt desc){_id, title, slug,body, mainImage, publishedAt, \"categories\": coalesce(categories[]->{title, \"color\": color.hex, slug, _id}, []),  author->{\n    name,\n    image\n  }}": POSTS_QUERYResult;
     "*[_type == \"post\" && defined(slug.current)]{ \n  \"slug\": slug.current\n}": POSTS_SLUGS_QUERYResult;
-    "*[_type == \"post\" && slug.current == $slug][0]{_id,title,body,mainImage,publishedAt, \"categories\": coalesce(categories[]->{title, color, slug, _id}, []), author->{\n    name,\n    image\n  }}": POST_BY_SLUG_QUERYResult;
+    "*[_type == \"post\" && slug.current == $slug][0]{_id,title,body,mainImage,publishedAt, \"categories\": coalesce(categories[]->{title, \"color\": color.hex, slug, _id}, []), author->{\n    name,\n    image\n  }}": POST_BY_SLUG_QUERYResult;
   }
 }

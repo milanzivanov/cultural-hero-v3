@@ -11,7 +11,7 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <div className="px-6 py-2">
+    <div className="px-6">
       <header className=" flex items-center justify-between p-6 rounded-lg max-w-7xl mx-auto">
         <Link href="/">
           <Image
