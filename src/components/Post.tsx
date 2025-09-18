@@ -5,7 +5,8 @@ import { PortableText } from "next-sanity";
 import { POST_BY_SLUG_QUERYResult } from "@/sanity/types";
 import { PublishedAt } from "@/components/PublishedAt";
 import { Title } from "@/components/Title";
-import Link from "next/link";
+import BackToTopButton from "./BackToTopButton";
+import BackTo from "./BackTo";
 // import { urlFor } from "@/sanity/lib/image";
 // import Image from "next/image";
 
@@ -41,7 +42,10 @@ export function Post(props: NonNullable<POST_BY_SLUG_QUERYResult>) {
         <hr />
       </article>
       <hr />
-      <Link href="/posts">&larr; Return to index</Link>
+      <div className="flex justify-end">
+        <BackTo />
+      </div>
+      <BackToTopButton />
     </>
   );
 }

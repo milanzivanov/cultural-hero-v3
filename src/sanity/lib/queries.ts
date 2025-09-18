@@ -31,6 +31,8 @@ export const POSTS_SLUGS_QUERY =
 export const POST_BY_SLUG_QUERY = defineQuery(
   `*[_type == "post" && slug.current == $slug][0]{_id,title,body,mainImage,publishedAt, "categories": coalesce(categories[]->{title, "color": color.hex, slug, _id}, []), author->{
     name,
-    image
+    image,
+    "slug": slug.current,
+    bio
   }}`
 );
