@@ -44,7 +44,7 @@ export default function PersonPanel({
 
       {isActive ? (
         <motion.div
-          className="bg-white shadow-sm rounded-md p-3"
+          className="bg-white shadow-sm rounded-3xl p-3"
           initial={{ opacity: 0, y: -20 }}
           animate={isActive ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}

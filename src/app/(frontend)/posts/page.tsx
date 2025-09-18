@@ -2,6 +2,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { POSTS_QUERY } from "@/sanity/lib/queries";
 import { Title } from "@/components/Title";
 import { PostCard } from "@/components/PostCard";
+import BackToTopButton from "@/components/BackToTopButton";
 
 export default async function Page() {
   const { data: posts } = await sanityFetch({ query: POSTS_QUERY });
@@ -18,6 +19,7 @@ export default async function Page() {
           <PostCard key={post._id} {...post} />
         ))}
       </div>
+      <BackToTopButton />
     </main>
   );
 }

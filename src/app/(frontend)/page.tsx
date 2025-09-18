@@ -3,9 +3,12 @@ import Link from "next/link";
 import { RECENT_POSTS_QUERY } from "@/sanity/lib/queries";
 import { sanityFetch } from "@/sanity/lib/live";
 import About from "@/components/About";
+import BackToTopButton from "@/components/BackToTopButton";
 
 export default async function Page() {
   const { data: posts } = await sanityFetch({ query: RECENT_POSTS_QUERY });
+
+  if (!posts) return null;
 
   return (
     <>
@@ -46,7 +49,6 @@ export default async function Page() {
           </div>
         </div>
       </div>
-
       <div className="mx-auto max-w-7xl py-0 md:py-5">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {/* left box */}
@@ -76,12 +78,10 @@ export default async function Page() {
           </div>
         </div>
       </div>
-
       {/* // */}
       <div className="mx-auto max-w-7xl pt-5 pb-15">
         <About />
       </div>
-
       {/* // */}
       <section className="bg-slate-50 mb-5">
         <div className="max-w-7xl mx-auto flex flex-col py-12">
@@ -123,9 +123,9 @@ export default async function Page() {
           </div>
         </div>
       </section>
-
-      {/* // */}
+      {/* footer */}
       <div className="bg-slate-700 h-[300px] max-w-7xl mx-auto flex flex-col mb-5 md:rounded-3xl"></div>
+      <BackToTopButton />
     </>
   );
 }

@@ -32,7 +32,7 @@ export default function About() {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               >
                 {/* 1 */}
-                <div className="mb-0 flex flex-col items-start rounded-none bg-slate-100 p-5 shadow-md md:rounded-md">
+                <div className="mb-0 flex flex-col items-start rounded-none bg-slate-100 p-5 shadow-md md:rounded-3xl">
                   <PersonPanel
                     title="Aleksandar Radović"
                     jobTitle="Urednik tekstova"
@@ -65,7 +65,7 @@ export default function About() {
                 </div>
 
                 {/* 2 */}
-                <div className="flex flex-col items-start rounded-md bg-slate-100 p-5 shadow-md">
+                <div className="flex flex-col items-start rounded-md bg-slate-100 p-5 shadow-md md:rounded-3xl">
                   <PersonPanel
                     title="Miloš Zubac"
                     jobTitle="Urednik tekstova"
@@ -101,7 +101,7 @@ export default function About() {
                 </div>
 
                 {/* 3 */}
-                <div className="flex flex-col items-start rounded-md bg-slate-100 p-5 shadow-md">
+                <div className="flex flex-col items-start rounded-md bg-slate-100 p-5 shadow-md md:rounded-3xl">
                   <PersonPanel
                     title="Vasilije Milnović"
                     jobTitle="Urednik tekstova"
@@ -139,7 +139,7 @@ export default function About() {
                 </div>
 
                 {/* 4 */}
-                <div className="flex flex-col items-start rounded-md bg-slate-100 p-5 shadow-md">
+                <div className="flex flex-col items-start rounded-md bg-slate-100 p-5 shadow-md md:rounded-3xl">
                   <PersonPanel
                     title=" Milan Živanov"
                     jobTitle="Developer & tehnička služba portala"
