@@ -4,6 +4,7 @@ import { RECENT_POSTS_QUERY } from "@/sanity/lib/queries";
 import { sanityFetch } from "@/sanity/lib/live";
 import About from "@/components/About";
 import BackToTopButton from "@/components/BackToTopButton";
+import Footer from "@/components/Footer";
 
 export default async function Page() {
   const { data: posts } = await sanityFetch({ query: RECENT_POSTS_QUERY });
@@ -12,16 +13,21 @@ export default async function Page() {
 
   return (
     <>
-      <div className="relative max-w-7xl mx-auto rounded-3xl flex h-[46dvh] w-full items-center justify-center bg-[url('/fotelja.webp')] md:bg-none md:bg-slate-700 bg-cover bg-right bg-no-repeat md:bg-center">
-        <div className="absolute inset-0 bg-slate-700/40 rounded-3xl"></div>
+      <div className="relative flex h-[calc(100dvh-88px)] w-full items-center justify-center bg-[url('/fotelja.webp')] bg-cover bg-right bg-no-repeat md:bg-center">
+        <div className="absolute inset-0 bg-slate-700/40"></div>
         <div className="flex flex-col w-full items-center">
           <div className="relative items-center z-10 flex flex-col">
             <h1
-              className="font-robotoBlack mb-0 md:mb-5 text-[1.7rem] font-black uppercase tracking-widest text-stone-200 dark:text-slate-300 md:text-4xl lg:text-5xl xl:text-[3.7
+              className="font-robotoBlack mb-0 md:mb-5 text-[1.7rem] font-black capitalize tracking-widest text-stone-200 dark:text-slate-300 md:text-4xl lg:text-5xl xl:text-[4.3rem]
             rem]"
             >
               Kulturni heroj
             </h1>
+            <p className="text-base max-w-2xl text-center text-stone-200 dark:text-slate-300 mb-5">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum
+              ratione accusamus ducimus. Animi nihil perferendis voluptatum quae
+              a ea voluptates?
+            </p>
             <div className="flex items-center md:w-auto w-full">
               <Link
                 href="/posts"
@@ -49,15 +55,33 @@ export default async function Page() {
           </div>
         </div>
       </div>
-      <div className="mx-auto max-w-7xl py-0 md:py-5">
+
+      {/* manifest */}
+      <div className="relative w-full mt-5">
+        <div className="relative max-w-7xl mx-auto">
+          <div className="relative  z-10 mx-auto justify-center flex h-full items-center">
+            <h2 className="text-center px-5 py-6 md:pt-8 text-xl font-bold uppercase leading-6 tracking-wide text-gray-700 md:px-0 md:text-2xl">
+              <span className="mb-0 block md:mb-2">
+                Manifest kulturnog heroja
+              </span>
+              {/* <span className="block">kulturnog heroja</span> */}
+            </h2>
+          </div>
+          <div className="absolute md:rounded-3xl inset-0  bg-opacity-50 lg:bg-opacity-45"></div>
+        </div>
+      </div>
+
+      <div className="mx-auto max-w-7xl py-0 md:pb-5">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {/* left box */}
-          <div className="relative md:col-span-2 rounded-none md:rounded-3xl hidden md:flex flex-col justify-end h-full bg-none md:bg-[url('/fotelja.webp')] bg-cover bg-right bg-no-repeat md:bg-center">
-            <div className="absolute rounded-none md:rounded-3xl inset-0 bg-slate-700/30"></div>
-            <div className="flex flex-col relative z-10 leading-relaxed max-w-lg bg-white p-5 rounded-none md:rounded-tr-3xl text-slate-600">
-              <h2 className="text-lg md:text-xl font-bold mb-2 uppercase">
+          <div className="relative md:col-span-2 rounded-none md:rounded-3xl hidden md:flex flex-col justify-end h-full md:bg-slate-200 shadow-sm ">
+            <div
+              className="flex flex-col relative z-10 leading-relaxed max-w-lg bg-white p-5 rounded-none md:rounded-tr-3xl text-slate-600 shadow-sm
+            "
+            >
+              <h3 className="text-lg md:text-xl font-bold mb-2 uppercase">
                 Dobrošli na blog Kulturnog heroja
-              </h2>
+              </h3>
               <p className="relative z-20 leading-relaxed text-sm md:text-base">
                 Vidovi kulturnog herojstva današnjice ogledaju se i na
                 digitalnim platformama. Mit(ovi) o Prometeju i(li) o Argonautima
@@ -68,7 +92,7 @@ export default async function Page() {
             </div>
           </div>
           {/* right box */}
-          <div className="md:col-span-1 px-5 py-2 md:p-5 rounded-none md:rounded-3xl flex flex-col h-full bg-slate-100">
+          <div className="md:col-span-1 px-5 py-2 md:p-5 rounded-none md:rounded-3xl flex flex-col h-full bg-slate-100 shadow-sm">
             <div className="flex items-center">
               <h2 className="text-pretty pb-2 text-lg md:text-xl font-bold tracking-wide text-slate-700">
                 Nedavno postavljeni naslovi
@@ -83,13 +107,13 @@ export default async function Page() {
         <About />
       </div>
       {/* // */}
-      <section className="bg-slate-50 mb-5">
-        <div className="max-w-7xl mx-auto flex flex-col py-12">
-          <h2 className="mx-auto text-lg md:text-xl font-bold uppercase leading-6 tracking-wide text-gray-700 max-w-3xl">
+      <section className="mb-15">
+        <div className="max-w-7xl bg-slate-100 mx-auto flex flex-col pt-12 pb-5 px-5 rounded-3xl">
+          <h2 className="mx-auto text-lg md:text-xl font-bold uppercase leading-6 tracking-wide text-gray-700 max-w-3xl mb-5">
             Naš fokus
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 p-5">
-            <div className="flex flex-col gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
+            <div className="bg-white rounded-3xl p-5 flex gap-4">
               <p className="text-md text-slate-600">
                 Rukovodeći se mislima jednog od vodećih antropologa 20. veka
                 Džozefa Kembela, da je „istina jedna, mudraci o njoj govore
@@ -98,7 +122,7 @@ export default async function Page() {
                 kojoj, ovaj, živi i stvara.
               </p>
             </div>
-            <div className="flex flex-col gap-4">
+            <div className="bg-white rounded-3xl p-5 flex gap-4">
               <p className="text-md text-slate-600">
                 Elektronski prostor („prozor“) otvoren je svima onima koji
                 razmatraju ulogu Tehnologije u životu Čoveka, baš kao i naporima
@@ -106,7 +130,7 @@ export default async function Page() {
                 ljudskog postojanja.
               </p>
             </div>
-            <div className="flex flex-col gap-4">
+            <div className="bg-white rounded-3xl p-5 flex gap-4">
               <p className="text-md text-slate-600">
                 Sajt, na osnovu rubrika{" "}
                 <span className="font-semibold italic text-gray-700">
@@ -124,7 +148,7 @@ export default async function Page() {
         </div>
       </section>
       {/* footer */}
-      <div className="bg-slate-700 h-[300px] max-w-7xl mx-auto flex flex-col mb-5 md:rounded-3xl"></div>
+      <Footer />
       <BackToTopButton />
     </>
   );
