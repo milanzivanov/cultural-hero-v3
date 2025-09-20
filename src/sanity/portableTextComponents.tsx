@@ -39,7 +39,7 @@ export const components: PortableTextComponents = {
             className="rounded-lg h-auto max-w-full"
             src={urlFor(props.value)
               .width(600)
-              .height(400)
+              .height(500)
               .quality(80)
               .auto("format")
               .url()}

@@ -22,7 +22,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="p-3 rounded-full bg-slate-200 dark:bg-white cursor-pointer"
+      className="p-3 rounded-full bg-slate-200 dark:bg-slate-300 cursor-pointer"
       aria-label="Toggle Dark Mode"
       type="button"
     >

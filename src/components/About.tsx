@@ -10,7 +10,7 @@ export default function About() {
   return (
     <>
       <div className="relative">
-        <div className="relative w-full">
+        {/* <div className="relative w-full">
           <div className="relative z-10 mx-auto justify-center flex h-full items-center">
             <h2 className="text-pretty text-center p-5 text-2xl font-extrabold tracking-wide text-slate-200 lg:text-3xl">
               <span className="mb-0 block md:mb-2">Manifest </span>
@@ -18,11 +18,11 @@ export default function About() {
             </h2>
           </div>
           <div className="absolute md:rounded-3xl inset-0 bg-slate-700 bg-opacity-50 lg:bg-opacity-45"></div>
-        </div>
+        </div> */}
 
         <div className="mx-auto flex h-full max-w-7xl flex-col">
           <div className="relative z-10">
-            <h2 className="text-center px-5 py-6 md:pb-8 md:pt-14 text-xl font-bold uppercase leading-6 tracking-wide text-gray-700 md:px-0 md:text-2xl">
+            <h2 className="text-center px-5 py-6 md:pb-8 md:pt-5 text-xl font-bold uppercase leading-6 tracking-wide text-gray-700 md:px-0 md:text-2xl">
               Kulturno-herojsku posadu čine
             </h2>
 
