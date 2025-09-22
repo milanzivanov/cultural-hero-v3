@@ -5,7 +5,7 @@ import Link from "next/link";
 
 function Footer() {
   return (
-    <footer className="w-full mb-5">
+    <footer className="w-full pb-5">
       <div className="flex flex-col bg-slate-700 mx-auto w-full max-w-7xl p-10 text-slate-200 md:rounded-3xl">
         <div className="grid grid-cols-1 md:grid-cols-2">
           <div>
