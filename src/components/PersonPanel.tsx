@@ -33,10 +33,10 @@ export default function PersonPanel({
           alt={altText}
         />
         <div>
-          <h3 className="text-lg font-semibold italic text-gray-700 md:text-xl">
+          <h3 className="text-lg font-semibold italic text-gray-700 dark:text-amber-100 md:text-xl">
             {title}
           </h3>
-          <h4 className="text-xs font-semibold italic text-gray-500 md:text-base mb-3">
+          <h4 className="text-xs font-semibold italic text-gray-500 dark:text-slate-300 md:text-base mb-3">
             {jobTitle}
           </h4>
         </div>

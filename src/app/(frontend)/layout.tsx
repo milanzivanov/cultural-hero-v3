@@ -7,7 +7,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <section className="bg-white min-h-screen">
+    <section className="bg-slate-50 dark:bg-slate-900 min-h-screen">
       <Header />
       {children}
       <SanityLive />

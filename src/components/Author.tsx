@@ -19,7 +19,9 @@ export function Author({ author }: AuthorProps) {
         />
       ) : null}
       {author?.name ? (
-        <p className="text-base text-slate-700">{author.name}</p>
+        <p className="text-base text-slate-700 dark:text-amber-100">
+          {author.name}
+        </p>
       ) : null}
     </div>
   ) : null;

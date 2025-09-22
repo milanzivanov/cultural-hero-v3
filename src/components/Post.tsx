@@ -13,7 +13,7 @@ import BackTo from "./BackTo";
 export function Post(props: NonNullable<POST_BY_SLUG_QUERYResult>) {
   const { title, author, body, publishedAt, categories } = props;
 
-  console.log("lllll", props);
+  // console.log("////", props);
 
   return (
     <>
