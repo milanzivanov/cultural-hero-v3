@@ -79,7 +79,7 @@ export default async function Page() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {/* left box */}
           <div className="relative md:col-span-2 rounded-none md:rounded-3xl h-full w-full bg-[url('/knjige.webp')] bg-cover bg-right bg-no-repeat hidden md:flex flex-col justify-end md:bg-slate-200 dark:bg-slate-700 shadow-sm">
-            <div className="absolute rounded-3xl inset-0 bg-slate-700/50 dark:bg-slate-700/80"></div>
+            <div className="absolute rounded-3xl inset-0 bg-slate-700/50"></div>
             <div
               className="flex flex-col relative z-10 leading-relaxed max-w-lg bg-white p-5 rounded-none md:rounded-tr-3xl md:rounded-bl-3xl text-slate-600 shadow-sm
             "
