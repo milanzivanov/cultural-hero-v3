@@ -5,6 +5,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 import About from "@/components/About";
 import BackToTopButton from "@/components/BackToTopButton";
 import Footer from "@/components/Footer";
+import AnimatedBorder from "@/components/AnimatedBorder";
 
 export default async function Page() {
   const { data: posts } = await sanityFetch({ query: RECENT_POSTS_QUERY });
@@ -21,7 +22,7 @@ export default async function Page() {
               Kulturni heroj
             </h1>
 
-            <div className="w-full h-px border-t border-dotted border-gray-700 dark:border-slate-200  mb-6"></div>
+            <AnimatedBorder timeout={0.1} />
 
             <p className="text-base max-w-lg text-left text-stone-700 dark:text-slate-200 mb-5">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum
@@ -29,7 +30,7 @@ export default async function Page() {
               a ea voluptates?
             </p>
 
-            <div className="w-full h-px border-t border-dotted border-gray-700 dark:border-slate-200 mb-6"></div>
+            <AnimatedBorder timeout={0.2} />
 
             <div className="flex items-center md:w-auto w-full">
               <Link
