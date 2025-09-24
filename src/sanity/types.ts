@@ -13,6 +13,47 @@
  */
 
 // Source: schema.json
+export type Member = {
+  _id: string;
+  _type: "member";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  slug?: Slug;
+  title?: string;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  bio?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal";
+    listItem?: never;
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+};
+
 export type Post = {
   _id: string;
   _type: "post";
@@ -316,7 +357,7 @@ export type SanityAssetSourceData = {
   url?: string;
 };
 
-export type AllSanitySchemaTypes = Post | Author | Category | BlockContent | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
+export type AllSanitySchemaTypes = Member | Post | Author | Category | BlockContent | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: POSTS_QUERY
@@ -398,7 +439,7 @@ export type POSTS_SLUGS_QUERYResult = Array<{
   slug: string | null;
 }>;
 // Variable: POST_BY_SLUG_QUERY
-// Query: *[_type == "post" && slug.current == $slug][0]{_id,title,body,mainImage,publishedAt, "categories": coalesce(categories[]->{title, "color": color.hex, slug, _id}, []), author->{    name,    image  }}
+// Query: *[_type == "post" && slug.current == $slug][0]{_id,title,body,mainImage,publishedAt, "categories": coalesce(categories[]->{title, "color": color.hex, slug, _id}, []), author->{    name,    image,    "slug": slug.current,    bio  }}
 export type POST_BY_SLUG_QUERYResult = {
   _id: string;
   title: string | null;
@@ -467,8 +508,69 @@ export type POST_BY_SLUG_QUERYResult = {
       crop?: SanityImageCrop;
       _type: "image";
     } | null;
+    slug: string | null;
+    bio: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
   } | null;
 } | null;
+// Variable: MEMBERS_QUERY
+// Query: *[_type == "member" && defined(slug.current)]
+export type MEMBERS_QUERYResult = Array<{
+  _id: string;
+  _type: "member";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  slug?: Slug;
+  title?: string;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  bio?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal";
+    listItem?: never;
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+}>;
 
 // Query TypeMap
 import "@sanity/client";
@@ -476,6 +578,7 @@ declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type == \"post\" && defined(slug.current)]|order(publishedAt desc){_id, title, slug,body, mainImage, publishedAt, \"categories\": coalesce(categories[]->{title, \"color\": color.hex, slug, _id}, []),  author->{\n    name,\n    image\n  }}": POSTS_QUERYResult;
     "*[_type == \"post\" && defined(slug.current)]{ \n  \"slug\": slug.current\n}": POSTS_SLUGS_QUERYResult;
-    "*[_type == \"post\" && slug.current == $slug][0]{_id,title,body,mainImage,publishedAt, \"categories\": coalesce(categories[]->{title, \"color\": color.hex, slug, _id}, []), author->{\n    name,\n    image\n  }}": POST_BY_SLUG_QUERYResult;
+    "*[_type == \"post\" && slug.current == $slug][0]{_id,title,body,mainImage,publishedAt, \"categories\": coalesce(categories[]->{title, \"color\": color.hex, slug, _id}, []), author->{\n    name,\n    image,\n    \"slug\": slug.current,\n    bio\n  }}": POST_BY_SLUG_QUERYResult;
+    "*[_type == \"member\" && defined(slug.current)]": MEMBERS_QUERYResult;
   }
 }

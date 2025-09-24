@@ -2,7 +2,7 @@ import Slider from "@/components/Slider";
 import Link from "next/link";
 import { RECENT_POSTS_QUERY } from "@/sanity/lib/queries";
 import { sanityFetch } from "@/sanity/lib/live";
-import About from "@/components/About";
+import Members from "@/components/Members";
 import BackToTopButton from "@/components/BackToTopButton";
 import Footer from "@/components/Footer";
 import AnimatedBorder from "@/components/AnimatedBorder";
@@ -18,13 +18,13 @@ export default async function Page() {
         {/* text */}
         <div className="flex flex-col rounded-3xl h-full w-full bg-gradient-to-r from-slate-200 to-slate-100  dark:from-slate-800 dark:to-slate-700">
           <div className="relative h-full max-w-3xl mx-auto items-start justify-center z-10 flex flex-col p-5">
-            <h1 className="font-robotoBlack pb-5 text-[1.7rem] font-black capitalize tracking-widest bg-gradient-to-r from-[#0071bc]  to-[#6366f1] bg-clip-text text-transparent md:text-4xl lg:text-5xl xl:text-[3.8rem] leading-tight">
+            <h1 className="p-5 font-robotoBlack text-[1.7rem] font-black capitalize tracking-widest bg-gradient-to-r from-[#0071bc]  to-[#6366f1] bg-clip-text text-transparent md:text-4xl lg:text-5xl xl:text-[3.8rem] leading-tight">
               Kulturni heroj
             </h1>
 
             <AnimatedBorder timeout={0.1} />
 
-            <p className="text-base max-w-lg text-left text-stone-700 dark:text-slate-200 mb-5">
+            <p className="px-5 pb-5 text-base max-w-lg text-left text-stone-700 dark:text-slate-200">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum
               ratione accusamus ducimus. Animi nihil perferendis voluptatum quae
               a ea voluptates?
@@ -32,7 +32,7 @@ export default async function Page() {
 
             <AnimatedBorder timeout={0.2} />
 
-            <div className="flex items-center md:w-auto w-full">
+            <div className="p-5 pt-0 flex items-center md:w-auto w-full">
               <Link
                 href="/posts"
                 className="flex items-center justify-center md:w-auto w-full rounded-full bg-blue-600 hover:bg-blue-700 px-6 py-2 text-[0.85rem] tracking-widest text-stone-200 transition-colors duration-300 focus:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:bg-blue-600 md:text-md"
@@ -110,7 +110,7 @@ export default async function Page() {
       </div>
       {/* // */}
       <div className="mx-auto max-w-7xl pt-5 pb-15">
-        <About />
+        <Members />
       </div>
       {/* // */}
       <section className="mb-15">

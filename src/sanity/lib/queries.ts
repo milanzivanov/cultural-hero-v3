@@ -36,3 +36,7 @@ export const POST_BY_SLUG_QUERY = defineQuery(
     bio
   }}`
 );
+
+export const MEMBERS_QUERY = defineQuery(
+  `*[_type == "member" && defined(slug.current)]`
+);
