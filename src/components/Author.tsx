@@ -1,9 +1,13 @@
-import { POST_BY_SLUG_QUERYResult } from "@/sanity/types";
+import { POST_BY_SLUG_QUERYResult, POSTS_QUERYResult } from "@/sanity/types";
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
 
+type AuthorFromList = NonNullable<POSTS_QUERYResult[0]["author"]>;
+type AuthorFromDetail = NonNullable<
+  NonNullable<POST_BY_SLUG_QUERYResult>["author"]
+>;
 type AuthorProps = {
-  author: NonNullable<POST_BY_SLUG_QUERYResult>["author"];
+  author: AuthorFromList | AuthorFromDetail | null;
 };
 
 export function Author({ author }: AuthorProps) {

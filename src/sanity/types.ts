@@ -41,7 +41,7 @@ export type Member = {
       _type: "span";
       _key: string;
     }>;
-    style?: "normal";
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
     listItem?: never;
     markDefs?: Array<{
       href?: string;
@@ -559,7 +559,7 @@ export type MEMBERS_QUERYResult = Array<{
       _type: "span";
       _key: string;
     }>;
-    style?: "normal";
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
     listItem?: never;
     markDefs?: Array<{
       href?: string;
