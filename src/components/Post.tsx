@@ -37,7 +37,7 @@ export function Post(props: NonNullable<POST_BY_SLUG_QUERYResult>) {
         </figure>
       ) : null} */}
         {body ? (
-          <div className="prose max-w-none w-full prose-img:mx-0">
+          <div className="prose max-w-none w-full prose-img:mx-0 dark:prose-invert">
             <PortableText value={body} components={components} />
           </div>
         ) : null}
