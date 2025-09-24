@@ -1,9 +1,9 @@
 import { UserIcon } from "@sanity/icons";
 import { defineArrayMember, defineField, defineType } from "sanity";
 
-export const authorType = defineType({
-  name: "author",
-  title: "Author",
+export const memberType = defineType({
+  name: "member",
+  title: "Member",
   type: "document",
   icon: UserIcon,
   fields: [
@@ -19,6 +19,10 @@ export const authorType = defineType({
       }
     }),
     defineField({
+      name: "title",
+      type: "string"
+    }),
+    defineField({
       name: "image",
       type: "image",
       options: {
@@ -31,7 +35,14 @@ export const authorType = defineType({
       of: [
         defineArrayMember({
           type: "block",
-          styles: [{ title: "Normal", value: "normal" }],
+          styles: [
+            { title: "Normal", value: "normal" },
+            { title: "H1", value: "h1" },
+            { title: "H2", value: "h2" },
+            { title: "H3", value: "h3" },
+            { title: "H4", value: "h4" },
+            { title: "Quote", value: "blockquote" }
+          ],
           lists: []
         })
       ]
