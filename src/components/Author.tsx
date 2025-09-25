@@ -19,7 +19,7 @@ export function Author({ author }: AuthorProps) {
           width={80}
           height={80}
           alt={author.name || ""}
-          className="bg-pink-50 size-10 shadow-inner rounded-full"
+          className="bg-slate-700 dark:bg-slate-100 size-10 shadow-inner rounded-full"
         />
       ) : null}
       {author?.name ? (
