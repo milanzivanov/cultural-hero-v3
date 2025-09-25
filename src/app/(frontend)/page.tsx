@@ -68,7 +68,7 @@ export default async function Page() {
       <div className="relative w-full mt-5">
         <div className="relative max-w-7xl mx-auto">
           <div className="relative z-10 mx-auto justify-center flex h-full items-center">
-            <h2 className="text-center px-5 py-6 md:pt-8 text-xl font-bold uppercase leading-6 tracking-wide text-gray-700 dark:text-amber-100 md:px-0 md:text-2xl">
+            <h2 className="text-center px-5 py-6 md:pt-8  font-bold uppercase leading-6 tracking-wide text-gray-700 dark:text-amber-100 md:px-0 text-xl md:text-2xl">
               <span className="mb-0 block">Manifest kulturnog heroja</span>
             </h2>
           </div>
@@ -115,12 +115,14 @@ export default async function Page() {
       {/* // */}
       <section className="mb-15">
         <div className="max-w-7xl bg-slate-100 dark:bg-slate-700 mx-auto flex flex-col pt-12 pb-5 px-5 rounded-3xl">
-          <h2 className="mx-auto text-lg md:text-xl font-bold uppercase leading-6 tracking-wide text-gray-700 dark:text-amber-100 max-w-3xl mb-5">
+          <h2 className="mx-auto text-xl md:text-2xl font-bold uppercase leading-6 tracking-wide text-gray-700 dark:text-amber-100 max-w-3xl mb-5">
             Naš fokus
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
             <div className="flex flex-col bg-white rounded-3xl p-5">
-              <h4 className="text-slate-700 text-lg font-bold">Iskustvo</h4>
+              <h4 className="text-slate-700 text-lg font-pretty font-bold">
+                Iskustvo
+              </h4>
               <p className="text-md text-slate-600">
                 Rukovodeći se mislima jednog od vodećih antropologa 20. veka
                 Džozefa Kembela, da je „istina jedna, mudraci o njoj govore

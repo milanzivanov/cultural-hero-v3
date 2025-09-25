@@ -7,13 +7,9 @@ import { PublishedAt } from "@/components/PublishedAt";
 import { Title } from "@/components/Title";
 import BackToTopButton from "./BackToTopButton";
 import BackTo from "./BackTo";
-// import { urlFor } from "@/sanity/lib/image";
-// import Image from "next/image";
 
 export function Post(props: NonNullable<POST_BY_SLUG_QUERYResult>) {
   const { title, author, body, publishedAt, categories } = props;
-
-  // console.log("////", props);
 
   return (
     <>
@@ -26,16 +22,6 @@ export function Post(props: NonNullable<POST_BY_SLUG_QUERYResult>) {
           <Title>{title}</Title>
           <Author author={author} />
         </header>
-        {/* {mainImage ? (
-        <figure className="lg:col-span-4 flex flex-col gap-2 items-start">
-          <Image
-            src={urlFor(mainImage).width(400).height(400).url()}
-            width={400}
-            height={400}
-            alt=""
-          />
-        </figure>
-      ) : null} */}
         {body ? (
           <div className="prose max-w-none w-full prose-img:mx-0 dark:prose-invert">
             <PortableText value={body} components={components} />
