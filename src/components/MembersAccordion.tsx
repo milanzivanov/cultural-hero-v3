@@ -18,7 +18,7 @@ export default function MembersAccordion({
   );
 
   return (
-    <div className="max-w-7xl bg-slate-100 dark:bg-slate-700 rounded-3xl mx-auto py-10 sm:py-12">
+    <div className="max-w-7xl bg-gradient-to-r from-slate-200 to-slate-100  dark:from-slate-800 dark:to-slate-700 rounded-3xl mx-auto py-10 sm:py-12">
       <div className="grid grid-cols-1 md:grid-cols-2 px-4 sm:px-6 gap-4 sm:gap-6">
         {members.map((member) => {
           const isOpen = activeId === member._id;
