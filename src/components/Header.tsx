@@ -21,6 +21,7 @@ export function Header() {
             height={38}
             priority
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="w-auto h-auto"
           />
         </Link>
       </div>
