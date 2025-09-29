@@ -18,7 +18,7 @@ export default function MembersAccordion({
   );
 
   return (
-    <div className="max-w-7xl bg-gradient-to-r from-slate-200 to-slate-100  dark:from-slate-800 dark:to-slate-700 rounded-3xl mx-auto py-10 sm:py-12">
+    <div className="max-w-7xl bg-gradient-to-r from-slate-200 to-slate-100  dark:from-slate-800 dark:to-slate-700 md:rounded-3xl mx-auto py-10 sm:py-12">
       <div className="grid grid-cols-1 md:grid-cols-2 px-4 sm:px-6 gap-4 sm:gap-6">
         {members.map((member) => {
           const isOpen = activeId === member._id;
@@ -52,7 +52,7 @@ export default function MembersAccordion({
                     </div>
                   )}
                   <div>
-                    <h3 className="text-lg sm:text-xl text-slate-800 dark:text-slate-100 font-semibold capitalize">
+                    <h3 className="text-base md:text-xl text-slate-800 dark:text-slate-100 font-semibold capitalize">
                       {member.name}
                     </h3>
                     <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300">
@@ -99,7 +99,7 @@ export default function MembersAccordion({
                     style={{ overflow: "hidden" }}
                     className="px-4 sm:px-5 pb-5"
                   >
-                    <div className="mt-2 rounded-2xl bg-slate-50 dark:bg-slate-700/60 p-4 sm:p-5 ring-1 ring-slate-200/70 dark:ring-slate-700/60 text-slate-700 dark:text-slate-100 leading-relaxed">
+                    <div className="text-sm md:text-base mt-2 rounded-2xl bg-slate-50 dark:bg-slate-700/60 p-4 sm:p-5 ring-1 ring-slate-200/70 dark:ring-slate-700/60 text-slate-700 dark:text-slate-100 leading-relaxed">
                       {member?.bio ? <PortableText value={member.bio} /> : null}
                     </div>
                   </motion.div>

@@ -5,18 +5,17 @@ import Link from "next/link";
 
 function Footer() {
   return (
-    <footer className="w-full pb-5">
-      <div className="flex flex-col bg-slate-700 mx-auto w-full max-w-7xl p-10 text-slate-200 md:rounded-3xl">
+    <footer className="w-full p-5">
+      <div className="flex flex-col bg-slate-700 mx-auto w-full max-w-7xl p-10 text-slate-200 rounded-3xl">
         <div className="grid grid-cols-1 md:grid-cols-2">
-          <div>
-            <h4 className="text-xl font-bold text-slate-200">
-              Kulturni heroj
-              <br /> mesto gde se kultura okuplja
-            </h4>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2">
+          <h4 className="text-xl font-bold text-slate-200 dark:text-amber-100 pb-5 md:pb-0">
+            Kulturni heroj
+            {/* <br /> mesto gde se kultura okuplja */}
+          </h4>
+
+          <div className="grid grid-cols-2">
             {/* 1 */}
-            <ul className="flex flex-col items-start gap-5 font-semibold text-slate-200">
+            <ul className="hidden md:flex flex-col items-start gap-5 font-semibold text-slate-200 ">
               <li>
                 <Link
                   href="/"
@@ -37,7 +36,7 @@ function Footer() {
 
             {/* 2 */}
             <ul className="flex flex-col items-start gap-5 font-semibold text-slate-200">
-              <li className="flex">
+              <li className="">
                 {" "}
                 <Link
                   target="_blank"
@@ -103,7 +102,7 @@ function Footer() {
             </div>
           </div>
           <div className="flex-1">
-            <p className="text-xs text-amber-400 font-mono mt-2">
+            <p className="text-xs text-amber-100 font-mono mt-2">
               &copy; 2025 Made by{" "}
               <Link
                 target="_blank"
