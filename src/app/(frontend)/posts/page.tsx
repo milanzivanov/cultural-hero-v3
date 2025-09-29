@@ -11,15 +11,19 @@ export default async function Page() {
   return (
     <>
       <Header />
-      <main className=" grid grid-cols-1 gap-6 px-0 pb-12">
-        <div className="bg-slate-200 dark:bg-slate-700 p-6">
+      <main className=" grid grid-cols-1 px-0 pb-12">
+        <div className="bg-slate-200 dark:bg-slate-700 pl-5 py-3 md:p-6">
           <div className="max-w-7xl mx-auto">
             <Title>Naslovi</Title>
           </div>
         </div>
-        <div className="max-w-7xl mx-auto flex flex-col gap-24 py-12">
-          {posts.map((post) => (
-            <PostCard key={post._id} {...post} />
+        <div className="max-w-7xl p-5 md:p-0 mx-auto flex flex-col gap-10 py-6 md:py-12">
+          {posts.map((post, index) => (
+            <PostCard
+              key={post._id}
+              {...post}
+              isLast={index === posts.length - 1}
+            />
           ))}
         </div>
         <BackToTopButton />

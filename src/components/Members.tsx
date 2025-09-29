@@ -13,7 +13,7 @@ export default async function About() {
       <div className="relative">
         <div className="mx-auto flex h-full max-w-7xl flex-col">
           <div className="relative z-10">
-            <h2 className="text-center px-5 py-6 md:pb-5 text-xl font-bold uppercase leading-6 tracking-wide text-gray-700 dark:text-amber-100 md:px-0 md:text-2xl">
+            <h2 className="text-center px-5 py-6 md:pb-5 text-lg font-bold uppercase leading-6 tracking-wide text-gray-700 dark:text-amber-100 md:px-0 md:text-2xl">
               Kulturno-herojsku posadu čine
             </h2>
 

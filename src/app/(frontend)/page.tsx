@@ -8,6 +8,14 @@ import Footer from "@/components/Footer";
 import AnimatedBorder from "@/components/AnimatedBorder";
 import { Header } from "@/components/Header";
 
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  display: "swap"
+});
+
 export default async function Page() {
   const { data: posts } = await sanityFetch({ query: RECENT_POSTS_QUERY });
 
@@ -22,16 +30,20 @@ export default async function Page() {
             <Header />
           </div>
           <div className="relative h-full max-w-3xl mx-auto items-start justify-center z-10 flex flex-col p-5">
-            <h1 className="p-5 text-[1.7rem] font-black tracking-widest bg-gradient-to-r from-[#0071bc]  to-[#6366f1] bg-clip-text text-transparent text-3xl md:text-4xl lg:text-5xl xl:text-[3.8rem] leading-tight">
+            <h1
+              className={`${poppins.className} p-5 text-[1.9rem] font-extrabold tracking-widest bg-gradient-to-r from-[#0071bc]  to-[#6366f1] bg-clip-text text-transparent md:text-4xl lg:text-5xl xl:text-[3.8rem] leading-tight`}
+            >
               Kulturni heroj
             </h1>
 
             <AnimatedBorder timeout={0.1} />
 
-            <p className="px-5 pb-5 text-base max-w-lg text-left text-stone-700 dark:text-slate-200">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum
-              ratione accusamus ducimus. Animi nihil perferendis voluptatum quae
-              a ea voluptates?
+            <p className="px-5 pb-5 text-base md:text-lg max-w-lg text-left text-stone-700 dark:text-slate-200">
+              Sve vredno što se pojavilo na svetu, treba zahvaliti pojedincima.
+              <br />
+              <span className="block font-bold">
+                <i>Kenet Klark</i>
+              </span>
             </p>
 
             <AnimatedBorder timeout={0.2} />
@@ -71,7 +83,7 @@ export default async function Page() {
       {/* manifest */}
       <section className="w-full mt-5">
         <div className="relative max-w-7xl z-10 mx-auto justify-center flex h-full items-center">
-          <h2 className="text-center px-5 py-6 md:pt-8 font-bold uppercase leading-6 tracking-wide text-gray-700 dark:text-amber-100 mb-0 md:px-0 text-xl md:text-2xl">
+          <h2 className="text-center px-5 py-6 md:pt-8 font-bold uppercase leading-6 tracking-wide text-gray-700 dark:text-amber-100 mb-0 md:px-0  text-lg md:text-xl lg:text-2xl">
             Manifest kulturnog heroja
           </h2>
         </div>
@@ -100,8 +112,8 @@ export default async function Page() {
           </div>
           {/* right box */}
           <div className="md:col-span-1 px-5 py-2 md:p-5 rounded-none md:rounded-3xl flex flex-col h-full bg-gradient-to-r from-slate-200 to-slate-100  dark:from-slate-800 dark:to-slate-700 shadow-sm">
-            <div className="flex items-center">
-              <h2 className="text-pretty pb-2 text-lg md:text-xl font-bold tracking-wide text-slate-700 dark:text-amber-100">
+            <div className="flex items-center justify-center md:justify-start">
+              <h2 className="text-pretty pb-2 text-md md:text-xl font-bold tracking-wide text-slate-700 dark:text-amber-100">
                 Nedavno postavljeni naslovi
               </h2>
             </div>
@@ -109,36 +121,25 @@ export default async function Page() {
           </div>
         </div>
       </section>
+
       {/* members */}
       <section className="mx-auto max-w-7xl pt-5 pb-15">
         <Members />
       </section>
 
       {/* focus */}
-      <section className="mb-15">
-        <div className="max-w-7xl bg-gradient-to-r from-slate-200 to-slate-100  dark:from-slate-800 dark:to-slate-700 mx-auto flex flex-col pt-12 pb-5 px-5 rounded-3xl">
-          <h2 className="mx-auto text-xl md:text-2xl font-bold uppercase leading-6 tracking-wide text-gray-700 dark:text-amber-100 max-w-3xl mb-5">
+      <section className="mb-0 md:mb-15">
+        <div className="max-w-7xl bg-gradient-to-r from-slate-200 to-slate-100  dark:from-slate-800 dark:to-slate-700 mx-auto flex flex-col pt-12 pb-5 px-5 md:rounded-3xl">
+          <h2 className="mx-auto text-lg md:text-2xl font-bold uppercase leading-6 tracking-wide text-gray-700 dark:text-amber-100 max-w-3xl mb-5">
             Naš fokus
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
             <div className="group relative flex flex-col rounded-3xl p-5 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-100 ring-1 ring-slate-200/70 dark:ring-slate-700/60 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5">
-              {/* <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 ring-1 ring-blue-100/70 dark:ring-blue-800/50">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path d="M9 6l6 6-6 6" />
-                </svg>
-              </div> */}
               <h4 className="flex items-center text-sm md:text-lg font-bold">
                 {" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
+                  className="h-5 w-5 mr-2"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -161,7 +162,7 @@ export default async function Page() {
                 {" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
+                  className="h-5 w-5 mr-2"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -183,7 +184,7 @@ export default async function Page() {
                 {" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
+                  className="h-5 w-5 mr-2"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"

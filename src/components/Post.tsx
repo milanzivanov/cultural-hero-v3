@@ -16,7 +16,7 @@ export function Post(props: NonNullable<POST_BY_SLUG_QUERYResult>) {
 
   return (
     <>
-      <article className="container mx-auto max-w-5xl grid grid-cols-1 gap-y-12">
+      <article className="container mx-auto max-w-5xl grid grid-cols-1 gap-y-6 md:gap-y-12">
         <div className="flex justify-between items-center">
           <Link
             href="/"

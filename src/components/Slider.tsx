@@ -57,7 +57,7 @@ export default function Slider({ posts = [] as Post[] }) {
       {posts.slice(0, 3).map((blog) => (
         <SwiperSlide key={blog._id}>
           <article
-            className="flex flex-col h-full rounded-lg md:rounded-3xl bg-white p-5 cursor-grab"
+            className="flex flex-col h-full rounded-3xl md:rounded-3xl bg-white p-5 cursor-grab"
             key={blog._id}
           >
             <div className="mb-5">
@@ -79,7 +79,10 @@ export default function Slider({ posts = [] as Post[] }) {
               </div>
 
               <div className="py-1 md:py-5">
-                <h2 className="text-pretty line-clamp-3 text-md  md:text-lg font-semibold italic leading-6 text-gray-900">
+                <h2
+                  className="text-pretty line-clamp-3 text-sm
+                 md:text-lg font-semibold italic leading-6 text-gray-900"
+                >
                   {blog.title}
                 </h2>
               </div>
