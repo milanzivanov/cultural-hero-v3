@@ -6,11 +6,10 @@ import Link from "next/link";
 function Footer() {
   return (
     <footer className="w-full p-5">
-      <div className="flex flex-col bg-slate-700 mx-auto w-full max-w-7xl p-10 text-slate-200 rounded-3xl">
+      <div className="mx-auto w-full max-w-7xl flex flex-col bg-slate-700  text-slate-200 rounded-3xl p-10">
         <div className="grid grid-cols-1 md:grid-cols-2">
           <h4 className="text-xl font-bold text-slate-200 dark:text-amber-100 pb-5 md:pb-0">
             Kulturni heroj
-            {/* <br /> mesto gde se kultura okuplja */}
           </h4>
 
           <div className="grid grid-cols-2">
@@ -18,7 +17,7 @@ function Footer() {
             <ul className="hidden md:flex flex-col items-start gap-5 font-semibold text-slate-200 ">
               <li>
                 <Link
-                  href="/"
+                  href="#home"
                   className={`hover:text-slate-300 transition-colors`}
                 >
                   Home

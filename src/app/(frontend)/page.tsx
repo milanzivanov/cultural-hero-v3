@@ -23,13 +23,16 @@ export default async function Page() {
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2 px-5 py-5 gap-5 h-dvh w-full">
+      <section
+        className="grid grid-cols-1 md:grid-cols-2 h-dvh w-full px-5 py-5 gap-5"
+        id="home"
+      >
         {/* text */}
         <div className="flex flex-col rounded-3xl h-full w-full bg-gradient-to-r from-slate-200 to-slate-100  dark:from-slate-800 dark:to-slate-700">
           <div>
             <Header />
           </div>
-          <div className="relative h-full max-w-3xl mx-auto items-start justify-center z-10 flex flex-col p-5">
+          <div className="relative h-full max-w-3xl mx-auto items-end justify-center z-10 flex flex-col p-5">
             <h1
               className={`${poppins.className} p-5 text-[1.9rem] font-extrabold tracking-widest bg-gradient-to-r from-[#0071bc]  to-[#6366f1] bg-clip-text text-transparent md:text-4xl lg:text-5xl xl:text-[3.8rem] leading-tight`}
             >
@@ -38,17 +41,19 @@ export default async function Page() {
 
             <AnimatedBorder timeout={0.1} />
 
-            <p className="px-5 pb-5 text-base md:text-lg max-w-lg text-left text-stone-700 dark:text-slate-200">
-              Sve vredno što se pojavilo na svetu, treba zahvaliti pojedincima.
-              <br />
-              <span className="block font-bold">
+            <div className="max-w-md mx-auto text-stone-700 dark:text-slate-200 px-6 pb-5">
+              <p className="text-base md:text-lg ">
+                Sve vredno što se pojavilo na svetu, treba zahvaliti
+                pojedincima.
+              </p>
+              <span className="block text-right font-bold">
                 <i>Kenet Klark</i>
               </span>
-            </p>
+            </div>
 
             <AnimatedBorder timeout={0.2} />
 
-            <div className="p-5 pt-0 flex items-center md:w-auto w-full">
+            <div className="flex items-center md:w-auto w-full p-5 pt-0">
               <Link
                 href="/posts"
                 className="flex items-center justify-center md:w-auto w-full rounded-full bg-blue-600 hover:bg-blue-700 px-6 py-2 text-[0.85rem] tracking-widest text-stone-200 transition-colors duration-300 focus:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:bg-blue-600 md:text-md"
@@ -78,18 +83,13 @@ export default async function Page() {
         <div className="rounded-3xl relative h-full w-full bg-[url('/fotelja.webp')] bg-cover bg-right bg-no-repeat hidden md:block">
           <div className="absolute rounded-3xl inset-0 bg-slate-700/40"></div>
         </div>
-      </div>
-
-      {/* manifest */}
-      <section className="w-full mt-5">
-        <div className="relative max-w-7xl z-10 mx-auto justify-center flex h-full items-center">
-          <h2 className="text-center px-5 py-6 md:pt-8 font-bold uppercase leading-6 tracking-wide text-gray-700 dark:text-amber-100 mb-0 md:px-0  text-lg md:text-xl lg:text-2xl">
-            Manifest kulturnog heroja
-          </h2>
-        </div>
       </section>
 
-      <section className="mx-auto max-w-7xl py-0 md:pb-5">
+      {/* manifest */}
+      <section className="mx-auto max-w-7xl pt-11 pb-10">
+        <h2 className="text-center font-bold uppercase leading-6 tracking-wide text-gray-700 dark:text-amber-100 text-lg md:text-xl lg:text-2xl pb-2 md:pb-3">
+          Manifest kulturnog heroja
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {/* left box */}
           <div className="relative md:col-span-2 rounded-none md:rounded-3xl h-full w-full bg-[url('/knjige.webp')] bg-cover bg-right bg-no-repeat hidden md:flex flex-col justify-end md:bg-slate-200 dark:bg-slate-700 shadow-sm">
@@ -113,7 +113,7 @@ export default async function Page() {
           {/* right box */}
           <div className="md:col-span-1 px-5 py-2 md:p-5 rounded-none md:rounded-3xl flex flex-col h-full bg-gradient-to-r from-slate-200 to-slate-100  dark:from-slate-800 dark:to-slate-700 shadow-sm">
             <div className="flex items-center justify-center md:justify-start">
-              <h2 className="text-pretty pb-2 text-md md:text-xl font-bold tracking-wide text-slate-700 dark:text-amber-100">
+              <h2 className="text-pretty text-md md:text-xl font-bold tracking-wide text-slate-700 dark:text-amber-100 pt-5 md:pt-0 pb-2 md:pb-3">
                 Nedavno postavljeni naslovi
               </h2>
             </div>
@@ -123,16 +123,16 @@ export default async function Page() {
       </section>
 
       {/* members */}
-      <section className="mx-auto max-w-7xl pt-5 pb-0 md:pb-15">
+      <section className="mx-auto max-w-7xl pt-7 pb-11">
         <Members />
       </section>
 
       {/* focus */}
-      <section className="mb-0 md:mb-15">
-        <div className="max-w-7xl bg-gradient-to-r from-slate-200 to-slate-100  dark:from-slate-800 dark:to-slate-700 mx-auto flex flex-col pt-0 md:pt-12 pb-5 px-5 md:rounded-3xl">
-          <h2 className="mx-auto text-lg md:text-2xl font-bold uppercase leading-6 tracking-wide text-gray-700 dark:text-amber-100 max-w-3xl mb-5">
-            Naš fokus
-          </h2>
+      <section className="max-w-7xl mx-auto pt-7 pb-0 md:pb-11">
+        <h2 className="w-full text-center text-lg md:text-2xl font-bold uppercase leading-6 tracking-wide text-gray-700 dark:text-amber-100  pb-2 md:pb-3">
+          Naš fokus
+        </h2>
+        <div className="max-w-7xl bg-gradient-to-r from-slate-200 to-slate-100  dark:from-slate-800 dark:to-slate-700 mx-auto flex flex-col md:rounded-3xl pt-5 pb-15 px-5">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
             <div className="group relative flex flex-col rounded-3xl p-5 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-100 ring-1 ring-slate-200/70 dark:ring-slate-700/60 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5">
               <h4 className="flex items-center text-sm md:text-lg font-bold">
