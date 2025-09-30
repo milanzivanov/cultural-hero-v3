@@ -136,7 +136,7 @@ export function Header() {
           <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
 
           {/* Menu Panel */}
-          <div className="absolute rounded-3xl h-[95vh] w-[90%] md:w-1/2 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white dark:bg-slate-800 shadow-2xl">
+          <div className="absolute rounded-3xl h-[95vh] w-[90%] md:w-1/2 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-slate-100 dark:bg-slate-800 shadow-2xl">
             <div className="flex flex-col items-center justify-center rounded-3xl h-[95dvh]">
               {/* Menu Header */}
               <div className="flex items-center w-[90%] justify-end p-6 border-b border-slate-200 dark:border-slate-700">
@@ -208,13 +208,6 @@ export function Header() {
                   </li>
                 </ul>
               </nav>
-
-              {/* Menu Footer */}
-              {/* <div className="p-6 w-[90%] border-t border-slate-200 dark:border-slate-700">
-                <div className="flex items-center justify-end w-full">
-                  <ThemeToggle />
-                </div>
-              </div> */}
             </div>
           </div>
         </div>

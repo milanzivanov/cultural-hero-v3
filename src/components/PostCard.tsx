@@ -14,7 +14,7 @@ export function PostCard(props: POSTS_QUERYResult[0] & { isLast?: boolean }) {
   return (
     <Link className="group" href={`/posts/${props.slug!.current}`}>
       <article
-        className={`flex flex-col-reverse gap-4 md:grid py-10 md:grid-cols-12 md:gap-0 border-slate-200 dark:border-slate-700 ${isLast ? "border-b-0" : "border-b-2"}`}
+        className={`flex flex-col gap-4 md:grid py-10 md:grid-cols-12 md:gap-0 border-slate-200 dark:border-slate-700 ${isLast ? "border-b-0" : "border-b-2"}`}
       >
         <div className="md:col-span-2 md:pt-1">
           <Categories categories={categories} />

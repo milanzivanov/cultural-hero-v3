@@ -123,13 +123,13 @@ export default async function Page() {
       </section>
 
       {/* members */}
-      <section className="mx-auto max-w-7xl pt-5 pb-15">
+      <section className="mx-auto max-w-7xl pt-5 pb-0 md:pb-15">
         <Members />
       </section>
 
       {/* focus */}
       <section className="mb-0 md:mb-15">
-        <div className="max-w-7xl bg-gradient-to-r from-slate-200 to-slate-100  dark:from-slate-800 dark:to-slate-700 mx-auto flex flex-col pt-12 pb-5 px-5 md:rounded-3xl">
+        <div className="max-w-7xl bg-gradient-to-r from-slate-200 to-slate-100  dark:from-slate-800 dark:to-slate-700 mx-auto flex flex-col pt-0 md:pt-12 pb-5 px-5 md:rounded-3xl">
           <h2 className="mx-auto text-lg md:text-2xl font-bold uppercase leading-6 tracking-wide text-gray-700 dark:text-amber-100 max-w-3xl mb-5">
             Naš fokus
           </h2>

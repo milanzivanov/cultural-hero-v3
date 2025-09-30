@@ -6,6 +6,9 @@ import BackToTopButton from "@/components/BackToTopButton";
 import { Header } from "@/components/Header";
 
 export default async function Page() {
+  // Add delay to see loader
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+
   const { data: posts } = await sanityFetch({ query: POSTS_QUERY });
 
   return (
