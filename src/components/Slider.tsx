@@ -19,23 +19,9 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-type Post = {
-  _id: string;
-  title?: string;
-  slug?: {
-    current?: string;
-  };
-  mainImage?: string;
-  publishedAt?: string;
-  categories?: {
-    _id: string;
-    title: string;
-    color?: string;
-    slug?: string;
-  }[];
-};
+import { RECENT_POSTS_QUERYResult } from "@/sanity/types";
 
-export default function Slider({ posts = [] as Post[] }) {
+export default function Slider({ posts = [] as RECENT_POSTS_QUERYResult }) {
   const router = useRouter();
 
   if (!posts?.length) return null;

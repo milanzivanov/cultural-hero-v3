@@ -16,6 +16,12 @@ const poppins = Poppins({
   display: "swap"
 });
 
+export const metadata = {
+  title: "Kulturni heroj",
+  description:
+    "Kulturni heroj je portal za kulturne heroje i koji to zele da postanu..."
+};
+
 export default async function Page() {
   const { data: posts } = await sanityFetch({ query: RECENT_POSTS_QUERY });
 

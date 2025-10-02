@@ -9,26 +9,30 @@ import BackToTopButton from "./BackToTopButton";
 import BackTo from "./BackTo";
 import ThemeToggle from "./ThemeToggle";
 import Link from "next/link";
+
+import { RelatedPosts } from "@/components/RelatedPosts";
+
 import { FaArrowCircleLeft } from "react-icons/fa";
 
 export function Post(props: NonNullable<POST_BY_SLUG_QUERYResult>) {
-  const { title, author, body, publishedAt, categories } = props;
+  const { _id, title, author, body, publishedAt, categories, relatedPosts } =
+    props;
 
   return (
     <>
       <article className="container mx-auto max-w-5xl grid grid-cols-1 gap-y-6 md:gap-y-12">
-        <div className="flex justify-between items-center">
+        <header className="flex justify-between items-center">
           <Link
-            href="/"
+            href="/posts"
             className="flex justify-between items-center hover:text-blue-600 hover:dark:text-amber-200 transition-colors text-blue-600 dark:text-amber-200"
           >
             <FaArrowCircleLeft className="size-5 mr-2" />
             <span className=" hover:text-blue-600 hover:dark:text-amber-200 transition-colors text-blue-600 dark:text-amber-200">
-              Back to home
+              Nazad na naslove
             </span>
           </Link>
           <ThemeToggle />
-        </div>
+        </header>
         <header className="lg:col-span-12 flex flex-col gap-4 items-start">
           <div className="flex gap-4 items-center">
             <Categories categories={categories} />
@@ -40,11 +44,16 @@ export function Post(props: NonNullable<POST_BY_SLUG_QUERYResult>) {
         {body ? (
           <div className="prose max-w-none w-full prose-img:mx-0 dark:prose-invert">
             <PortableText value={body} components={components} />
+            <RelatedPosts
+              relatedPosts={relatedPosts}
+              documentId={_id}
+              documentType="post"
+            />
           </div>
         ) : null}
         <hr />
       </article>
-      <hr />
+
       <div className="flex justify-end">
         <BackTo />
       </div>

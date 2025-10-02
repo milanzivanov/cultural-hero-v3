@@ -120,6 +120,13 @@ export type Post = {
     _type: "image";
     _key: string;
   }>;
+  relatedPosts?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "post";
+  }>;
 };
 
 export type Author = {
@@ -433,13 +440,86 @@ export type POSTS_QUERYResult = Array<{
     } | null;
   } | null;
 }>;
+// Variable: RECENT_POSTS_QUERY
+// Query: *[_type == "post"] | order(_createdAt desc) [0...3]{  _id,  title,  body,  publishedAt,  slug,  mainImage,  "categories": coalesce(categories[]->{title, "color": color.hex, slug, _id}, []),  author->{    name,    image  }}
+export type RECENT_POSTS_QUERYResult = Array<{
+  _id: string;
+  title: string | null;
+  body: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  }> | null;
+  publishedAt: string | null;
+  slug: Slug | null;
+  mainImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
+  categories: Array<{
+    title: string | null;
+    color: string | null;
+    slug: Slug | null;
+    _id: string;
+  }> | Array<never>;
+  author: {
+    name: string | null;
+    image: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    } | null;
+  } | null;
+}>;
 // Variable: POSTS_SLUGS_QUERY
 // Query: *[_type == "post" && defined(slug.current)]{   "slug": slug.current}
 export type POSTS_SLUGS_QUERYResult = Array<{
   slug: string | null;
 }>;
 // Variable: POST_BY_SLUG_QUERY
-// Query: *[_type == "post" && slug.current == $slug][0]{_id,title,body,mainImage,publishedAt, "categories": coalesce(categories[]->{title, "color": color.hex, slug, _id}, []), author->{    name,    image,    "slug": slug.current,    bio  }}
+// Query: *[_type == "post" && slug.current == $slug][0]{_id,title,body,mainImage,publishedAt,  "categories": coalesce(categories[]->{title, "color": color.hex, slug, _id}, []  ),  author->{    name,    image,    "slug": slug.current,    bio  },      relatedPosts[]{    _key, // required for drag and drop    ...@->{_id, title, slug} // get fields from the referenced post  }  }
 export type POST_BY_SLUG_QUERYResult = {
   _id: string;
   title: string | null;
@@ -528,6 +608,12 @@ export type POST_BY_SLUG_QUERYResult = {
       _key: string;
     }> | null;
   } | null;
+  relatedPosts: Array<{
+    _key: string;
+    _id: string;
+    title: string | null;
+    slug: Slug | null;
+  }> | null;
 } | null;
 // Variable: MEMBERS_QUERY
 // Query: *[_type == "member" && defined(slug.current)]
@@ -577,8 +663,9 @@ import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type == \"post\" && defined(slug.current)]|order(publishedAt desc){_id, title, slug,body, mainImage, publishedAt, \"categories\": coalesce(categories[]->{title, \"color\": color.hex, slug, _id}, []),  author->{\n    name,\n    image\n  }}": POSTS_QUERYResult;
+    "\n*[_type == \"post\"] | order(_createdAt desc) [0...3]{\n  _id,\n  title,\n  body,\n  publishedAt,\n  slug,\n  mainImage,\n  \"categories\": coalesce(categories[]->{title, \"color\": color.hex, slug, _id}, []),\n  author->{\n    name,\n    image\n  }\n}\n": RECENT_POSTS_QUERYResult;
     "*[_type == \"post\" && defined(slug.current)]{ \n  \"slug\": slug.current\n}": POSTS_SLUGS_QUERYResult;
-    "*[_type == \"post\" && slug.current == $slug][0]{_id,title,body,mainImage,publishedAt, \"categories\": coalesce(categories[]->{title, \"color\": color.hex, slug, _id}, []), author->{\n    name,\n    image,\n    \"slug\": slug.current,\n    bio\n  }}": POST_BY_SLUG_QUERYResult;
+    "*[_type == \"post\" && slug.current == $slug][0]{_id,title,body,mainImage,publishedAt,\n  \"categories\": coalesce(categories[]->{title, \"color\": color.hex, slug, _id}, []\n  ),\n  author->{\n    name,\n    image,\n    \"slug\": slug.current,\n    bio\n  },\n  \n    relatedPosts[]{\n    _key, // required for drag and drop\n    ...@->{_id, title, slug} // get fields from the referenced post\n  }\n  }": POST_BY_SLUG_QUERYResult;
     "*[_type == \"member\" && defined(slug.current)]": MEMBERS_QUERYResult;
   }
 }

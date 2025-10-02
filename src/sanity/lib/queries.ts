@@ -7,7 +7,7 @@ export const POSTS_QUERY = defineQuery(
   }}`
 );
 
-export const RECENT_POSTS_QUERY = /* groq */ `
+export const RECENT_POSTS_QUERY = defineQuery(`
 *[_type == "post"] | order(_createdAt desc) [0...3]{
   _id,
   title,
@@ -21,7 +21,7 @@ export const RECENT_POSTS_QUERY = /* groq */ `
     image
   }
 }
-`;
+`);
 
 export const POSTS_SLUGS_QUERY =
   defineQuery(`*[_type == "post" && defined(slug.current)]{ 
@@ -29,12 +29,21 @@ export const POSTS_SLUGS_QUERY =
 }`);
 
 export const POST_BY_SLUG_QUERY = defineQuery(
-  `*[_type == "post" && slug.current == $slug][0]{_id,title,body,mainImage,publishedAt, "categories": coalesce(categories[]->{title, "color": color.hex, slug, _id}, []), author->{
+  `*[_type == "post" && slug.current == $slug][0]{_id,title,body,mainImage,publishedAt,
+  "categories": coalesce(categories[]->{title, "color": color.hex, slug, _id}, []
+  ),
+  author->{
     name,
     image,
     "slug": slug.current,
     bio
-  }}`
+  },
+  
+    relatedPosts[]{
+    _key, // required for drag and drop
+    ...@->{_id, title, slug} // get fields from the referenced post
+  }
+  }`
 );
 
 export const MEMBERS_QUERY = defineQuery(

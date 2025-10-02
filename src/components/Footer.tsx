@@ -41,7 +41,7 @@ function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   href="https://www.linkedin.com"
-                  className="flex items-center gap-3 hover:text-red-200"
+                  className="flex items-center gap-3 hover:text-amber-100"
                 >
                   {" "}
                   <span>LinkedIn</span>
@@ -67,7 +67,7 @@ function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   href="https://www.instagram.com"
-                  className="flex items-center gap-3 hover:text-red-200"
+                  className="flex items-center gap-3 hover:text-amber-100"
                 >
                   {" "}
                   <span>Instagram</span>

@@ -4,7 +4,11 @@ import { urlFor } from "@/sanity/lib/image";
 
 export const components: PortableTextComponents = {
   block: {
-    normal: ({ children }) => <p>{children}</p>,
+    normal: ({ children }) => (
+      <div>
+        <p>{children}</p>
+      </div>
+    ),
     h1: ({ children }) => <h1>{children}</h1>,
     h2: ({ children }) => <h2>{children}</h2>,
     h3: ({ children }) => <h3>{children}</h3>,
@@ -39,13 +43,13 @@ export const components: PortableTextComponents = {
             className="rounded-lg h-auto max-w-full"
             src={urlFor(props.value)
               .width(600)
-              .height(500)
+              .height(600)
               .quality(80)
               .auto("format")
               .url()}
             alt={props?.value?.alt || ""}
             width={600}
-            height={400}
+            height={600}
           />
           {props?.value?.alt ? (
             <figcaption>{props.value.alt}</figcaption>
