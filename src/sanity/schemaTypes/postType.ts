@@ -48,7 +48,14 @@ export const postType = defineType({
     defineField({
       name: "categories",
       type: "array",
-      of: [defineArrayMember({ type: "reference", to: { type: "category" } })]
+      of: [
+        defineArrayMember({
+          type: "reference",
+          to: { type: "category" }
+        })
+      ],
+      validation: (rule) =>
+        rule.required().max(1).error("You can only select ONE category.")
     }),
     defineField({
       name: "publishedAt",
@@ -57,6 +64,11 @@ export const postType = defineType({
     defineField({
       name: "body",
       type: "blockContent"
+    }),
+    defineField({
+      name: "relatedPosts",
+      type: "array",
+      of: [{ type: "reference", to: { type: "post" } }]
     })
   ],
   preview: {
