@@ -39,7 +39,7 @@ export function RelatedPosts({
   }
   return (
     <aside className="border-t">
-      <h2>Related Posts</h2>
+      <h2>Povezani naslovi</h2>
       <div className="not-prose text-balance">
         <ul
           className="flex flex-col sm:flex-row gap-2"
@@ -53,7 +53,7 @@ export function RelatedPosts({
           {posts.map((post) => (
             <li
               key={post._key}
-              className="p-4 bg-blue-50 dark:bg-slate-700 sm:w-1/3 flex-shrink-0"
+              className="p-4 bg-blue-50 dark:bg-slate-700 sm:w-1/3 flex-shrink-0 clamp-2"
               data-sanity={createDataAttribute({
                 ...createDataAttributeConfig,
                 id: documentId,

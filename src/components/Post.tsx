@@ -51,7 +51,6 @@ export function Post(props: NonNullable<POST_BY_SLUG_QUERYResult>) {
             />
           </div>
         ) : null}
-        <hr />
       </article>
 
       <div className="flex justify-end">
