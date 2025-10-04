@@ -75,6 +75,14 @@ export function Header() {
           </li>
           <li>
             <Link
+              href="/contact"
+              className={`hover:text-blue-600 hover:dark:text-amber-200 transition-colors ${pathname === "/contact" ? "text-blue-600 dark:text-amber-200" : ""}`}
+            >
+              Kontakt
+            </Link>
+          </li>
+          <li>
+            <Link
               className={`hover:text-blue-600 hover:dark:text-amber-200 transition-colors ${pathname === "/studio" ? "text-blue-600 dark:text-amber-200" : ""}`}
               href="/studio"
               target="_blank"
@@ -189,6 +197,19 @@ export function Header() {
                       onClick={closeMobileMenu}
                     >
                       Naslovi
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/contact"
+                      className={`block px-4 py-3 rounded-lg font-semibold transition-colors ${
+                        pathname === "/contact"
+                          ? "text-blue-600 dark:text-amber-200 bg-blue-50 dark:bg-blue-900/20"
+                          : "text-slate-700 dark:text-slate-200"
+                      }`}
+                      onClick={closeMobileMenu}
+                    >
+                      Kontakt
                     </Link>
                   </li>
                   <li>

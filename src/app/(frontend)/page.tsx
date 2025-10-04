@@ -40,7 +40,7 @@ export default async function Page() {
           </div>
           <div className="relative h-full max-w-3xl mx-auto items-end justify-center z-10 flex flex-col p-5">
             <h1
-              className={`${poppins.className} p-5 text-[1.9rem] font-extrabold tracking-widest bg-gradient-to-r from-[#0071bc]  to-[#6366f1] bg-clip-text text-transparent md:text-4xl lg:text-5xl xl:text-[3.8rem] leading-tight`}
+              className={`${poppins.className} p-5 text-[1.8rem] font-extrabold tracking-widest bg-gradient-to-r from-[#0071bc]  to-[#6366f1] bg-clip-text text-transparent md:text-4xl lg:text-5xl xl:text-[3.8rem] leading-tight`}
             >
               Kulturni heroj
             </h1>

@@ -31,6 +31,14 @@ function Footer() {
                   Naslovi
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className={`hover:text-slate-300 transition-colors`}
+                >
+                  Kontakt
+                </Link>
+              </li>
             </ul>
 
             {/* 2 */}
@@ -40,37 +48,11 @@ function Footer() {
                 <Link
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="https://www.linkedin.com"
+                  href="https://www.facebook.com/profile.php?id=61581500142378"
                   className="flex items-center gap-3 hover:text-amber-100"
                 >
                   {" "}
-                  <span>LinkedIn</span>
-                  <svg
-                    width="15"
-                    height="15"
-                    viewBox="0 0 22 22"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M1.33814 18.4507L14.8803 4.90855L2.79223 4.40488L2.89631 1.90705L18.9794 2.57718L19.6495 18.6603L17.1517 18.7644L16.648 6.67632L3.1059 20.2185L1.33814 18.4507Z"
-                      fill="#ffffff"
-                    ></path>
-                  </svg>
-                </Link>
-              </li>
-              <li className="">
-                {" "}
-                <Link
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://www.instagram.com"
-                  className="flex items-center gap-3 hover:text-amber-100"
-                >
-                  {" "}
-                  <span>Instagram</span>
+                  <span>facebook</span>
                   <svg
                     width="15"
                     height="15"
