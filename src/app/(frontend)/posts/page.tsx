@@ -5,6 +5,10 @@ import { PostCard } from "@/components/PostCard";
 import BackToTopButton from "@/components/BackToTopButton";
 import { Header } from "@/components/Header";
 
+export const metadata = {
+  title: "Kulturni heroj | Naslovi"
+};
+
 export default async function Page() {
   const { data: posts } = await sanityFetch({ query: POSTS_QUERY });
 

@@ -27,7 +27,7 @@ export function Post(props: NonNullable<POST_BY_SLUG_QUERYResult>) {
             className="flex justify-between items-center hover:text-blue-600 hover:dark:text-amber-200 transition-colors text-blue-600 dark:text-amber-200"
           >
             <FaArrowCircleLeft className="size-5 mr-2" />
-            <span className=" hover:text-blue-600 hover:dark:text-amber-200 transition-colors text-blue-600 dark:text-amber-200">
+            <span className=" hover:text-blue-600 hover:dark:text-amber-200 transition-colors text-blue-600 dark:text-amber-200 text-xs md:text-base">
               Nazad na naslove
             </span>
           </Link>
