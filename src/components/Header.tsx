@@ -10,6 +10,10 @@ import { usePathname } from "next/navigation";
 
 export function Header() {
   const pathname = usePathname() || "/";
+  const normalizedPathname =
+    pathname === "/" || pathname === ""
+      ? "/"
+      : pathname.replace(/\/+$/, "") || "/";
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Close mobile menu when route changes
@@ -60,7 +64,7 @@ export function Header() {
           <li>
             <Link
               href="/"
-              className={`hover:text-blue-600 hover:dark:text-amber-200 transition-colors ${pathname === "/" ? "text-blue-600 dark:text-amber-200" : ""}`}
+              className={`hover:text-blue-600 hover:dark:text-amber-200 transition-colors ${normalizedPathname === "/" ? "text-blue-600 dark:text-amber-200" : ""}`}
             >
               Home
             </Link>
@@ -68,7 +72,7 @@ export function Header() {
           <li>
             <Link
               href="/posts"
-              className={`hover:text-blue-600 hover:dark:text-amber-200 transition-colors ${pathname.startsWith("/posts") ? "text-blue-600 dark:text-amber-200" : ""}`}
+              className={`hover:text-blue-600 hover:dark:text-amber-200 transition-colors ${normalizedPathname.startsWith("/posts") ? "text-blue-600 dark:text-amber-200" : ""}`}
             >
               Naslovi
             </Link>
@@ -76,14 +80,14 @@ export function Header() {
           <li>
             <Link
               href="/contact"
-              className={`hover:text-blue-600 hover:dark:text-amber-200 transition-colors ${pathname === "/contact" ? "text-blue-600 dark:text-amber-200" : ""}`}
+              className={`hover:text-blue-600 hover:dark:text-amber-200 transition-colors ${normalizedPathname === "/contact" ? "text-blue-600 dark:text-amber-200" : ""}`}
             >
               Kontakt
             </Link>
           </li>
           <li>
             <Link
-              className={`hover:text-blue-600 hover:dark:text-amber-200 transition-colors ${pathname === "/studio" ? "text-blue-600 dark:text-amber-200" : ""}`}
+              className={`hover:text-blue-600 hover:dark:text-amber-200 transition-colors ${normalizedPathname === "/studio" ? "text-blue-600 dark:text-amber-200" : ""}`}
               href="/studio"
               target="_blank"
               rel="noopener noreferrer"
@@ -177,7 +181,7 @@ export function Header() {
                     <Link
                       href="/"
                       className={`block px-4 py-3 rounded-lg font-semibold transition-colors ${
-                        pathname === "/"
+                        normalizedPathname === "/"
                           ? "text-blue-600 dark:text-amber-200 "
                           : "text-slate-700 dark:text-slate-200"
                       }`}
@@ -190,7 +194,7 @@ export function Header() {
                     <Link
                       href="/posts"
                       className={`block px-4 py-3 rounded-lg font-semibold transition-colors ${
-                        pathname.startsWith("/posts")
+                        normalizedPathname.startsWith("/posts")
                           ? "text-blue-600 dark:text-amber-200 bg-blue-50 dark:bg-blue-900/20"
                           : "text-slate-700 dark:text-slate-200"
                       }`}
@@ -203,7 +207,7 @@ export function Header() {
                     <Link
                       href="/contact"
                       className={`block px-4 py-3 rounded-lg font-semibold transition-colors ${
-                        pathname === "/contact"
+                        normalizedPathname === "/contact"
                           ? "text-blue-600 dark:text-amber-200 bg-blue-50 dark:bg-blue-900/20"
                           : "text-slate-700 dark:text-slate-200"
                       }`}
@@ -218,7 +222,7 @@ export function Header() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`block px-4 py-3 rounded-lg font-semibold transition-colors ${
-                        pathname === "/studio"
+                        normalizedPathname === "/studio"
                           ? "text-blue-600 dark:text-amber-200 bg-blue-50 dark:bg-blue-900/20"
                           : "text-slate-700 dark:text-slate-200"
                       }`}
