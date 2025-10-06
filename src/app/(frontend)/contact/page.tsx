@@ -1,7 +1,6 @@
-import ThemeToggle from "@/components/ThemeToggle";
-import Image from "next/image";
+import { Header } from "@/components/Header";
 import Link from "next/link";
-import { FaArrowCircleLeft, FaFacebook } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
 
 export const metadata = {
   title: "Kulturni heroj | Kontakt"
@@ -10,33 +9,7 @@ export const metadata = {
 function page() {
   return (
     <>
-      <header className="flex items-center justify-between p-6 max-w-7xl mx-auto">
-        <div className="bg-white flex items-center justify-center w-11 h-10 rounded-full">
-          <Link href="/">
-            <Image
-              src="/kh-logo.svg"
-              alt="Kulturni heroj"
-              width={38}
-              height={38}
-              priority
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            />
-          </Link>
-        </div>
-
-        <Link
-          href="/"
-          className="flex justify-between items-center text-blue-600 dark:text-amber-200 hover:text-blue-600 hover:dark:text-amber-200 transition-colors  ml-auto"
-        >
-          <FaArrowCircleLeft className="size-5 mr-2" />
-          <span className=" hover:text-blue-600 hover:dark:text-amber-200 transition-colors text-blue-600 dark:text-amber-200 text-xs md:text-base">
-            Nazad na home
-          </span>
-        </Link>
-        <div className="pl-5">
-          <ThemeToggle />
-        </div>
-      </header>
+      <Header />
 
       {/* bg img */}
       <div className="flex flex-col items-center justify-between max-w-7xl mx-auto px-5 pb-5">

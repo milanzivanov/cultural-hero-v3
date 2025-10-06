@@ -9,7 +9,7 @@ import ThemeToggle from "./ThemeToggle";
 import { usePathname } from "next/navigation";
 
 export function Header() {
-  const pathname = usePathname();
+  const pathname = usePathname() || "/";
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Close mobile menu when route changes
@@ -68,7 +68,7 @@ export function Header() {
           <li>
             <Link
               href="/posts"
-              className={`hover:text-blue-600 hover:dark:text-amber-200 transition-colors ${pathname === "/posts" ? "text-blue-600 dark:text-amber-200" : ""}`}
+              className={`hover:text-blue-600 hover:dark:text-amber-200 transition-colors ${pathname.startsWith("/posts") ? "text-blue-600 dark:text-amber-200" : ""}`}
             >
               Naslovi
             </Link>
@@ -190,7 +190,7 @@ export function Header() {
                     <Link
                       href="/posts"
                       className={`block px-4 py-3 rounded-lg font-semibold transition-colors ${
-                        pathname === "/posts"
+                        pathname.startsWith("/posts")
                           ? "text-blue-600 dark:text-amber-200 bg-blue-50 dark:bg-blue-900/20"
                           : "text-slate-700 dark:text-slate-200"
                       }`}

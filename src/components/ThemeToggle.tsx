@@ -21,10 +21,10 @@ export default function ThemeToggle() {
 
   return (
     <button
+      type="button"
+      aria-label="Toggle Dark Mode"
       onClick={toggleTheme}
       className="p-3 rounded-full bg-slate-200 dark:bg-slate-300 cursor-pointer"
-      aria-label="Toggle Dark Mode"
-      type="button"
     >
       {dark ? <LuMoon /> : <LuSun />}
     </button>
