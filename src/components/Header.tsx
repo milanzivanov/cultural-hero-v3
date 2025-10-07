@@ -9,11 +9,18 @@ import ThemeToggle from "./ThemeToggle";
 import { usePathname } from "next/navigation";
 
 export function Header() {
-  const pathname = usePathname() || "/";
+  const rawPathname = usePathname() || "/";
+
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  const pathname = rawPathname.startsWith(basePath)
+    ? rawPathname.slice(basePath.length) || "/"
+    : rawPathname;
+
   const normalizedPathname =
     pathname === "/" || pathname === ""
       ? "/"
       : pathname.replace(/\/+$/, "") || "/";
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Close mobile menu when route changes
