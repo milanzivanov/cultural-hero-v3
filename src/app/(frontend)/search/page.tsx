@@ -17,14 +17,14 @@ async function SearchPage({ searchParams }: SearchProps) {
   return (
     <>
       <Header />
-      <main className="max-w-7xl mx-auto p-5 md:p-0 py-6">
+      <main className="max-w-7xl mx-auto p-5 pt-0 md:p-0 py-6">
         {/* bg img */}
         <div className="rounded-3xl rounded-b-none relative w-full h-[30dvh] bg-[url('/knjige.webp')] bg-cover bg-right bg-no-repeat flex">
           <div className="absolute rounded-3xl rounded-b-none inset-0 bg-slate-700/40"></div>
         </div>
 
         {!query ? (
-          <div className="bg-slate-200 dark:bg-slate-700 rounded-3xl rounded-t-none pl-5 py-3 md:p-6">
+          <div className="bg-slate-200 dark:bg-slate-700 rounded-3xl rounded-t-none px-5 py-3 md:p-6">
             <h5 className="text-md md:text-xl font-semibold text-slate-700 dark:text-slate-50 tracking-wide text-pretty mb-8">
               Niste uneli nikakav pojam u polje za pretragu.
               <br /> Vratite se nazad i pokušajte ponovo.
@@ -40,10 +40,11 @@ async function SearchPage({ searchParams }: SearchProps) {
             </Link>
           </div>
         ) : posts.length === 0 ? (
-          <div className="bg-slate-200 dark:bg-slate-700 rounded-3xl rounded-t-none pl-5 py-3 md:p-6">
-            <h5 className="text-md md:text-xl font-semibold text-slate-700 dark:text-slate-50 tracking-wide text-pretty  mb-8">
-              Nema rezultata za pretragu: &quot;{query}&quot;. <br /> Vratite se
-              nazad i pokušajte ponovo sa drugim terminom.
+          <div className="bg-slate-200 dark:bg-slate-700 rounded-3xl rounded-t-none px-5 py-3 md:p-6">
+            <h5 className="text-md md:text-xl font-semibold text-slate-700 dark:text-slate-50 tracking-wide text-pretty mb-8">
+              Nema rezultata za pretragu:{" "}
+              <span className="font-bold italic">&quot;{query}&quot;</span>
+              . <br /> Vratite se nazad i pokušajte ponovo sa drugim terminom.
             </h5>
             <Link
               href="/posts"
