@@ -1,7 +1,8 @@
 import AnimatedBorder from "@/components/AnimatedBorder";
+import BackToTopButton from "@/components/BackToTopButton";
 import { Header } from "@/components/Header";
 import { PostCard } from "@/components/PostCard";
-import { searchPostsByTitleAction } from "@/sanity/lib/search";
+import { searchPostsAction } from "@/sanity/lib/search";
 import Link from "next/link";
 import { FaArrowCircleLeft } from "react-icons/fa";
 
@@ -12,15 +13,15 @@ type SearchProps = {
 async function SearchPage({ searchParams }: SearchProps) {
   const { query = "" } = (await searchParams) ?? {};
   const q = query.trim();
-  const posts = q ? await searchPostsByTitleAction(query) : [];
+  const posts = q ? await searchPostsAction(q) : [];
 
   return (
     <>
       <Header />
       <main className="max-w-7xl mx-auto p-5 pt-0 md:p-0 py-6">
         {/* bg img */}
-        <div className="rounded-3xl rounded-b-none relative w-full h-[30dvh] bg-[url('/knjige.webp')] bg-cover bg-right bg-no-repeat flex">
-          <div className="absolute rounded-3xl rounded-b-none inset-0 bg-slate-700/40"></div>
+        <div className="relative w-full h-[20dvh] md:h-[50dvh] lg:h-[40dvh] bg-[url('/knjige.webp')] bg-cover bg-right bg-no-repeat flex">
+          <div className="absolute  inset-0 bg-slate-700/40"></div>
         </div>
 
         {!query ? (
@@ -61,6 +62,7 @@ async function SearchPage({ searchParams }: SearchProps) {
             <h5 className="text-md md:text-xl font-semibold text-slate-700 dark:text-slate-50 tracking-wide text-pretty py-5">
               Rezultati pretrage za:{" "}
               <span className="font-bold italic">&quot;{query}&quot;</span>
+              <span>{query ? ` (${posts.length})` : ""}</span>
             </h5>
 
             <AnimatedBorder timeout={0.1} />
@@ -84,6 +86,7 @@ async function SearchPage({ searchParams }: SearchProps) {
           </div>
         )}
       </main>
+      <BackToTopButton />
     </>
   );
 }

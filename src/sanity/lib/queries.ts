@@ -50,9 +50,14 @@ export const MEMBERS_QUERY = defineQuery(
   `*[_type == "member" && defined(slug.current)]`
 );
 
-// search
-export const searchPostsByTitle = defineQuery(
-  `*[_type == "post" && title match $searchTerm] | order(title asc){
+// search by title, author name and category
+
+export const searchPostsByTerm = defineQuery(
+  `*[_type == "post" && (
+    title match $q ||
+    author->name match $q ||
+    count((categories[]->title)[@ match $q]) > 0
+  )] | order(publishedAt desc){
     _id,
     title,
     slug,
@@ -60,9 +65,6 @@ export const searchPostsByTitle = defineQuery(
     mainImage,
     publishedAt,
     "categories": coalesce(categories[]->{title, "color": color.hex, slug, _id}, []),
-    author->{
-      name,
-      image
-    }
+    author->{ name, image }
   }`
 );
