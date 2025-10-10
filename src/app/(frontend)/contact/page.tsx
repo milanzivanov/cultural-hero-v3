@@ -13,8 +13,8 @@ function page() {
 
       {/* bg img */}
       <div className="flex flex-col items-center justify-between max-w-7xl mx-auto px-5 pb-5">
-        <div className="rounded-3xl relative h-[50dvh] w-full bg-[url('/fotelja2.webp')] bg-cover bg-right bg-no-repeat overflow-hidden">
-          <div className="absolute rounded-3xl inset-0 bg-slate-700/40 dark:bg-slate-700/40"></div>
+        <div className="rounded-3xl rounded-t-none relative h-[50dvh] w-full bg-[url('/fotelja2.webp')] bg-cover bg-right bg-no-repeat overflow-hidden">
+          <div className="absolute rounded-3xl rounded-t-none inset-0 bg-slate-700/40 dark:bg-slate-700/40"></div>
         </div>
       </div>
 

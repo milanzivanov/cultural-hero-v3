@@ -1,14 +1,16 @@
 import { sanityFetch } from "./live";
-import { searchPostsByTitle } from "./queries";
+import { searchPostsByTerm } from "./queries";
 import type { POSTS_QUERYResult } from "../types";
 
-export const searchPostsByTitleAction = async (
-  searchTerm: string
+export const searchPostsAction = async (
+  term: string
 ): Promise<POSTS_QUERYResult> => {
+  const q = `*${term}*` || "";
+
   try {
     const { data } = await sanityFetch({
-      query: searchPostsByTitle,
-      params: { searchTerm: `*${searchTerm}*` }
+      query: searchPostsByTerm,
+      params: { q }
     });
     return data || [];
   } catch (error) {
