@@ -1,13 +1,23 @@
 import { sanityFetch } from "@/sanity/lib/live";
-import { POST_BY_SLUG_QUERY } from "@/sanity/lib/queries";
+import { POST_BY_SLUG_QUERY, POSTS_SLUGS_QUERY } from "@/sanity/lib/queries";
 
 import { notFound } from "next/navigation";
 import { Post } from "@/components/Post";
 import type { Metadata } from "next";
+import { client } from "@/sanity/lib/client";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
+
+//
+export async function generateStaticParams() {
+  const slugs = await client
+    .withConfig({ useCdn: false })
+    .fetch(POSTS_SLUGS_QUERY);
+
+  return slugs;
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { data: posts } = await sanityFetch({

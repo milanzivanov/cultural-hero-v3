@@ -20,7 +20,7 @@ const poppins = Poppins({
 export const metadata = {
   title: "Kulturni heroj",
   description:
-    "Kulturni heroj je portal za kulturne heroje i koji to zele da postanu..."
+    "Kulturni heroj je portal za kulturne heroje i koji to žele da postanu..."
 };
 
 export default async function Page() {
@@ -140,10 +140,6 @@ export default async function Page() {
           Naš fokus
         </h2>
         <div className="max-w-7xl bg-gradient-to-r from-slate-200 to-slate-100  dark:from-slate-800 dark:to-slate-700 mx-auto flex flex-col md:rounded-3xl pt-5 pb-15 px-5">
-          {/* focus img */}
-          {/* <div className="relative md:col-span-2 rounded-none md:rounded-3xl w-full bg-[url('/polica1.webp')] h-[30dvh] bg-cover bg-center bg-no-repeat hidden md:flex flex-col justify-end md:bg-slate-200 dark:bg-slate-700 shadow-sm mb-5">
-            <div className="absolute rounded-3xl inset-0 bg-slate-700/50"></div>
-          </div> */}
           {/* focus boxes */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
             <div className="group relative flex flex-col rounded-3xl p-5 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-100 ring-1 ring-slate-200/70 dark:ring-slate-700/60 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5">
@@ -156,10 +152,10 @@ export default async function Page() {
                   height={500}
                   className="w-full aspect-video object-cover"
                 />
-                <div className="absolute rounded-3xl rounded-b-none inset-0 bg-slate-700/50"></div>
+                <div className="absolute rounded-3xl rounded-b-none inset-0 bg-slate-700/20"></div>
               </div>
 
-              <h4 className="flex items-center text-sm md:text-lg font-bold py-3">
+              <h4 className="flex items-center text-md md:text-lg font-bold py-3">
                 {" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -173,7 +169,7 @@ export default async function Page() {
                 </svg>
                 <span>Iskustvo</span>
               </h4>
-              <p className="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+              <p className="text-md md:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
                 Rukovodeći se mislima jednog od vodećih antropologa 20. veka
                 Džozefa Kembela, da je „istina jedna, mudraci o njoj govore
                 različitim imenima“, grupa koja (p)okreće ovaj sajt nastoji da
@@ -191,10 +187,10 @@ export default async function Page() {
                   height={500}
                   className="w-full aspect-video object-cover"
                 />
-                <div className="absolute rounded-3xl rounded-b-none inset-0 bg-slate-700/50"></div>
+                <div className="absolute rounded-3xl rounded-b-none inset-0 bg-slate-700/20"></div>
               </div>
 
-              <h4 className="flex items-center text-sm md:text-lg font-bold py-3">
+              <h4 className="flex items-center text-md md:text-lg font-bold py-3">
                 {" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -208,7 +204,7 @@ export default async function Page() {
                 </svg>
                 <span>Tehnologija</span>
               </h4>
-              <p className="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+              <p className="text-md md:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
                 Elektronski prostor („prozor“) otvoren je svima onima koji
                 razmatraju ulogu Tehnologije u životu Čoveka, baš kao i naporima
                 zajednice da u mudrostima „od Veda do Gugla“ sazna Istine
@@ -225,10 +221,10 @@ export default async function Page() {
                   height={500}
                   className="w-full aspect-video object-cover"
                 />
-                <div className="absolute rounded-3xl rounded-b-none inset-0 bg-slate-700/50"></div>
+                <div className="absolute rounded-3xl rounded-b-none inset-0 bg-slate-700/20"></div>
               </div>
 
-              <h4 className="flex items-center text-sm md:text-lg font-bold py-3">
+              <h4 className="flex items-center text-md md:text-lg font-bold py-3">
                 {" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

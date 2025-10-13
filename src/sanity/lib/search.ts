@@ -5,7 +5,7 @@ import type { POSTS_QUERYResult } from "../types";
 export const searchPostsAction = async (
   term: string
 ): Promise<POSTS_QUERYResult> => {
-  const q = `*${term}*` || "";
+  const q = term.trim();
 
   try {
     const { data } = await sanityFetch({
