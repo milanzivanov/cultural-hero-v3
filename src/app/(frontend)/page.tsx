@@ -108,7 +108,7 @@ export default async function Page() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {/* left box */}
-          <div className="relative md:col-span-2 h-full w-full hidden md:flex flex-col justify-end md:bg-slate-200 dark:bg-slate-700 shadow-sm">
+          <div className="relative md:col-span-2 h-full w-full hidden md:flex flex-col justify-end md:bg-slate-200 dark:bg-slate-700 shadow-sm rounded-none md:rounded-3xl">
             <Image
               src="/knjige.webp"
               alt="Knjige"
