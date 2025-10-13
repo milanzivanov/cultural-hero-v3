@@ -13,14 +13,15 @@ import { Poppins } from "next/font/google";
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  display: "swap"
+  weight: ["800"],
+  display: "swap",
+  preload: true
 });
 
 export const metadata = {
   title: "Kulturni heroj",
   description:
-    "Kulturni heroj je portal za kulturne heroje i koji to žele da postanu..."
+    "Kulturni heroj je portal za kulturne heroje i za one koji to žele da postanu..."
 };
 
 export default async function Page() {
@@ -87,7 +88,15 @@ export default async function Page() {
           </div>
         </div>
         {/* img */}
-        <div className="rounded-3xl relative h-full w-full bg-[url('/fotelja.webp')] bg-cover bg-right bg-no-repeat hidden md:block">
+        <div className="relative h-full w-full hidden md:block">
+          <Image
+            src="/fotelja.webp"
+            alt="Fotelja"
+            fill
+            priority
+            sizes="(max-width: 768px) 0vw, 50vw"
+            className="rounded-3xl object-cover object-right"
+          />
           <div className="absolute rounded-3xl inset-0 bg-slate-700/40"></div>
         </div>
       </section>
@@ -99,7 +108,15 @@ export default async function Page() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {/* left box */}
-          <div className="relative md:col-span-2 rounded-none md:rounded-3xl h-full w-full bg-[url('/knjige.webp')] bg-cover bg-right bg-no-repeat hidden md:flex flex-col justify-end md:bg-slate-200 dark:bg-slate-700 shadow-sm">
+          <div className="relative md:col-span-2 h-full w-full hidden md:flex flex-col justify-end md:bg-slate-200 dark:bg-slate-700 shadow-sm">
+            <Image
+              src="/knjige.webp"
+              alt="Knjige"
+              fill
+              priority
+              sizes="(max-width: 768px) 0vw, 50vw"
+              className="rounded-none md:rounded-3xl object-cover object-right"
+            />
             <div className="absolute rounded-3xl inset-0 bg-slate-700/50"></div>
             <div
               className="flex flex-col relative z-10 leading-relaxed max-w-lg bg-white p-5 rounded-none md:rounded-tr-3xl md:rounded-bl-3xl text-slate-600 shadow-sm
