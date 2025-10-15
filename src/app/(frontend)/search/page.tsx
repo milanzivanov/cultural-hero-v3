@@ -3,6 +3,7 @@ import BackToTopButton from "@/components/BackToTopButton";
 import { Header } from "@/components/Header";
 import { PostCard } from "@/components/PostCard";
 import { searchPostsAction } from "@/sanity/lib/search";
+import Image from "next/image";
 import Link from "next/link";
 import { FaArrowCircleLeft } from "react-icons/fa";
 
@@ -20,8 +21,14 @@ async function SearchPage({ searchParams }: SearchProps) {
       <Header />
       <main className="max-w-7xl mx-auto p-5 pt-0 md:p-0 py-6">
         {/* bg img */}
-        <div className="relative w-full h-[20dvh] md:h-[50dvh] lg:h-[40dvh] bg-[url('/knjige.webp')] bg-cover bg-right bg-no-repeat flex">
-          <div className="absolute  inset-0 bg-slate-700/40"></div>
+        <div className="relative w-full h-[20dvh] md:h-[50dvh] lg:h-[40dvh] flex">
+          <Image
+            src="/knjige.webp"
+            alt="fotelja"
+            fill
+            className="object-cover rounded-md"
+          />
+          <div className="absolute inset-0 bg-slate-700/40 rounded-md"></div>
         </div>
 
         {!query ? (
