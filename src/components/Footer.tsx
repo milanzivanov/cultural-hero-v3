@@ -48,7 +48,7 @@ function Footer() {
                 <Link
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="https://www.facebook.com/profile.php?id=61581500142378"
+                  href="https://www.facebook.com/groups/1396433822489667"
                   className="flex items-center gap-3 hover:text-amber-100"
                 >
                   {" "}
