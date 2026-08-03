@@ -1,6 +1,12 @@
 import Image from "next/image";
-import { PortableTextComponents } from "next-sanity";
+import { PortableText, PortableTextComponents } from "next-sanity";
 import { urlFor } from "@/sanity/lib/image";
+
+const captionComponents: PortableTextComponents = {
+  block: {
+    normal: ({ children }) => <>{children}</>
+  }
+};
 
 export const components: PortableTextComponents = {
   block: {
@@ -22,6 +28,9 @@ export const components: PortableTextComponents = {
   list: {
     bullet: ({ children }) => <ul>{children}</ul>,
     number: ({ children }) => <ol>{children}</ol>
+  },
+  marks: {
+    sup: ({ children }) => <sup>{children}</sup>
   },
   listItem: {
     bullet: ({ children }) => (
@@ -51,7 +60,14 @@ export const components: PortableTextComponents = {
             width={600}
             height={600}
           />
-          {props?.value?.alt ? (
+          {props?.value?.caption?.length ? (
+            <figcaption>
+              <PortableText
+                value={props.value.caption}
+                components={captionComponents}
+              />
+            </figcaption>
+          ) : props?.value?.alt ? (
             <figcaption>{props.value.alt}</figcaption>
           ) : null}
         </figure>

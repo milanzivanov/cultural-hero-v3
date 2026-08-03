@@ -117,6 +117,20 @@ export type Post = {
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     alt?: string;
+    caption?: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: null;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }>;
     _type: "image";
     _key: string;
   }>;
@@ -209,6 +223,20 @@ export type BlockContent = Array<{
   hotspot?: SanityImageHotspot;
   crop?: SanityImageCrop;
   alt?: string;
+  caption?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal";
+    listItem?: never;
+    markDefs?: null;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
   _type: "image";
   _key: string;
 }>;
@@ -401,6 +429,20 @@ export type POSTS_QUERYResult = Array<{
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     alt?: string;
+    caption?: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: null;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }>;
     _type: "image";
     _key: string;
   }> | null;
@@ -473,6 +515,20 @@ export type RECENT_POSTS_QUERYResult = Array<{
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     alt?: string;
+    caption?: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: null;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }>;
     _type: "image";
     _key: string;
   }> | null;
@@ -551,6 +607,20 @@ export type POST_BY_SLUG_QUERYResult = {
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     alt?: string;
+    caption?: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: null;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }>;
     _type: "image";
     _key: string;
   }> | null;
@@ -657,6 +727,93 @@ export type MEMBERS_QUERYResult = Array<{
     _key: string;
   }>;
 }>;
+// Variable: searchPostsByTerm
+// Query: *[_type == "post" && (    title match $q ||    author->name match $q ||    count((categories[]->title)[@ match $q]) > 0  )] | order(publishedAt desc){    _id,    title,    slug,    body,    mainImage,    publishedAt,    "categories": coalesce(categories[]->{title, "color": color.hex, slug, _id}, []),    author->{ name, image }  }
+export type SearchPostsByTermResult = Array<{
+  _id: string;
+  title: string | null;
+  slug: Slug | null;
+  body: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    caption?: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: null;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }>;
+    _type: "image";
+    _key: string;
+  }> | null;
+  mainImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
+  publishedAt: string | null;
+  categories: Array<{
+    title: string | null;
+    color: string | null;
+    slug: Slug | null;
+    _id: string;
+  }> | Array<never>;
+  author: {
+    name: string | null;
+    image: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    } | null;
+  } | null;
+}>;
 
 // Query TypeMap
 import "@sanity/client";
@@ -667,5 +824,6 @@ declare module "@sanity/client" {
     "*[_type == \"post\" && defined(slug.current)]{ \n  \"slug\": slug.current\n}": POSTS_SLUGS_QUERYResult;
     "*[_type == \"post\" && slug.current == $slug][0]{_id,title,body,mainImage,publishedAt,\n  \"categories\": coalesce(categories[]->{title, \"color\": color.hex, slug, _id}, []\n  ),\n  author->{\n    name,\n    image,\n    \"slug\": slug.current,\n    bio\n  },\n  \n    relatedPosts[]{\n    _key, // required for drag and drop\n    ...@->{_id, title, slug} // get fields from the referenced post\n  }\n  }": POST_BY_SLUG_QUERYResult;
     "*[_type == \"member\" && defined(slug.current)]": MEMBERS_QUERYResult;
+    "*[_type == \"post\" && (\n    title match $q ||\n    author->name match $q ||\n    count((categories[]->title)[@ match $q]) > 0\n  )] | order(publishedAt desc){\n    _id,\n    title,\n    slug,\n    body,\n    mainImage,\n    publishedAt,\n    \"categories\": coalesce(categories[]->{title, \"color\": color.hex, slug, _id}, []),\n    author->{ name, image }\n  }": SearchPostsByTermResult;
   }
 }

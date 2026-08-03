@@ -1,4 +1,4 @@
-import { defineType, defineArrayMember } from "sanity";
+import { defineType, defineArrayMember, defineField } from "sanity";
 import { ImageIcon } from "@sanity/icons";
 
 /**
@@ -38,7 +38,8 @@ export const blockContentType = defineType({
         // preference or highlighting
         decorators: [
           { title: "Strong", value: "strong" },
-          { title: "Emphasis", value: "em" }
+          { title: "Emphasis", value: "em" },
+          { title: "Superscript", value: "sup" }
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
@@ -69,7 +70,26 @@ export const blockContentType = defineType({
           name: "alt",
           type: "string",
           title: "Alternative Text"
-        }
+        },
+        defineField({
+          name: "caption",
+          title: "Caption",
+          type: "array",
+          of: [
+            defineArrayMember({
+              type: "block",
+              styles: [],
+              lists: [],
+              marks: {
+                decorators: [
+                  { title: "Strong", value: "strong" },
+                  { title: "Emphasis", value: "em" }
+                ],
+                annotations: []
+              }
+            })
+          ]
+        })
       ]
     })
   ]
