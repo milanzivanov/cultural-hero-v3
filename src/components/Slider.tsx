@@ -1,9 +1,7 @@
 "use client";
 
 import {
-  Navigation,
   Pagination,
-  Scrollbar,
   Autoplay,
   EffectFade
 } from "swiper/modules";
@@ -15,20 +13,23 @@ import dayjs from "dayjs";
 
 import "swiper/css";
 import "swiper/css/effect-fade";
-import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "swiper/css/scrollbar";
 
-import { RECENT_POSTS_QUERYResult } from "@/sanity/types";
+import type { RECENT_POSTS_QUERYResult } from "@/sanity/types";
 
-export default function Slider({ posts = [] as RECENT_POSTS_QUERYResult }) {
+type RecentPost = Pick<
+  RECENT_POSTS_QUERYResult[number],
+  "_id" | "title" | "publishedAt" | "slug" | "categories"
+>;
+
+export default function Slider({ posts = [] }: { posts: RecentPost[] }) {
   const router = useRouter();
 
   if (!posts?.length) return null;
 
   return (
     <Swiper
-      modules={[Navigation, Pagination, Scrollbar, Autoplay, EffectFade]}
+      modules={[Pagination, Autoplay, EffectFade]}
       effect={"fade"}
       slidesPerView={1}
       loop={true}

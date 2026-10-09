@@ -24,7 +24,6 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth" className="scroll-smooth">
       <head>
-        <link rel="preload" href="/fotelja.webp" as="image" type="image/webp" />
         <link
           rel="preload"
           href="/kh-logo.svg"

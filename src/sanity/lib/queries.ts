@@ -11,15 +11,9 @@ export const RECENT_POSTS_QUERY = defineQuery(`
 *[_type == "post"] | order(_createdAt desc) [0...3]{
   _id,
   title,
-  body,
   publishedAt,
   slug,
-  mainImage,
-  "categories": coalesce(categories[]->{title, "color": color.hex, slug, _id}, []),
-  author->{
-    name,
-    image
-  }
+  "categories": coalesce(categories[]->{title, "color": color.hex, slug, _id}, [])
 }
 `);
 

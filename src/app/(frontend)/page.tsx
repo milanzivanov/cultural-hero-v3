@@ -1,6 +1,7 @@
 import Slider from "@/components/Slider";
 import Link from "next/link";
-import Image from "next/image";
+import Image, { getImageProps } from "next/image";
+import { Suspense } from "react";
 import { RECENT_POSTS_QUERY } from "@/sanity/lib/queries";
 import { sanityFetch } from "@/sanity/lib/live";
 import Members from "@/components/Members";
@@ -24,10 +25,19 @@ export const metadata = {
     "Kulturni heroj je portal za kulturne heroje i za one koji to žele da postanu..."
 };
 
-export default async function Page() {
+async function RecentPosts() {
   const { data: posts } = await sanityFetch({ query: RECENT_POSTS_QUERY });
+  return <Slider posts={posts || []} />;
+}
 
-  if (!posts) return null;
+export default function Page() {
+  const { props: heroImage } = getImageProps({
+    src: "/fotelja.webp",
+    alt: "Fotelja",
+    fill: true,
+    sizes: "50vw",
+    className: "rounded-3xl object-cover object-right"
+  });
 
   return (
     <>
@@ -89,14 +99,22 @@ export default async function Page() {
         </div>
         {/* img */}
         <div className="relative h-full w-full hidden md:block">
-          <Image
-            src="/fotelja.webp"
-            alt="Fotelja"
-            fill
-            priority
-            sizes="(max-width: 768px) 0vw, 50vw"
-            className="rounded-3xl object-cover object-right"
-          />
+          <picture>
+            <source
+              media="(min-width: 768px)"
+              srcSet={heroImage.srcSet}
+              sizes={heroImage.sizes}
+            />
+            {/* A transparent fallback prevents downloading a hidden photo on phones. */}
+            <img
+              {...heroImage}
+              alt="Fotelja"
+              srcSet={undefined}
+              src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+              loading="eager"
+              fetchPriority="high"
+            />
+          </picture>
           <div className="absolute rounded-3xl inset-0 bg-slate-700/40"></div>
         </div>
       </section>
@@ -113,7 +131,6 @@ export default async function Page() {
               src="/knjige.webp"
               alt="Knjige"
               fill
-              priority
               sizes="(max-width: 768px) 0vw, 50vw"
               className="rounded-none md:rounded-3xl object-cover object-right"
             />
@@ -141,14 +158,32 @@ export default async function Page() {
                 Nedavno postavljeni naslovi
               </h2>
             </div>
-            <Slider posts={posts || []} />
+            <Suspense
+              fallback={
+                <div className="min-h-64 rounded-3xl bg-white p-5 text-slate-700" role="status">
+                  Učitavanje naslova…
+                </div>
+              }
+            >
+              <RecentPosts />
+            </Suspense>
           </div>
         </div>
       </section>
 
       {/* members */}
       <section className="mx-auto max-w-7xl pt-7 pb-11">
-        <Members />
+        <Suspense
+          fallback={
+            <div className="min-h-64" role="status">
+              <p className="p-5 text-center text-slate-700 dark:text-slate-200">
+                Učitavanje posade…
+              </p>
+            </div>
+          }
+        >
+          <Members />
+        </Suspense>
       </section>
 
       {/* our focus */}
